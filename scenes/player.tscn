@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d13kpb31w2af6"]
+
+[ext_resource type="Texture2D" uid="uid://cbcljdxgjtf3" path="res://assets/ship.png" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 9.0
+height = 26.0
+
+[node name="player" type="Node2D" unique_id=1396747313]
+
+[node name="shipBody" type="CharacterBody2D" parent="." unique_id=248429109]
+
+[node name="shipSpr" type="Sprite2D" parent="shipBody" unique_id=686601240]
+texture = ExtResource("1_3vyb7")
+
+[node name="shipCollision" type="CollisionShape2D" parent="shipBody" unique_id=1090178142]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_g2els")
