@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dp58tpma4d4kq"]
+
+[ext_resource type="Script" uid="uid://bqga2yy41lcem" path="res://scripts/enemySpawner.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://d13kpb31w2af6" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node2D" unique_id=780503707]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1900488230]
+custom_minimum_size = Vector2(960, 720)
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0, 0, 0.07450981, 1)
+
+[node name="spawnTimer" type="Timer" parent="." unique_id=1161669056]
+
+[node name="preparationTimer" type="Timer" parent="." unique_id=1051248915]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="enemySpawner" type="Node2D" parent="." unique_id=1506960885]
+script = ExtResource("1_0wfyh")
+
+[node name="player" parent="." unique_id=1396747313 instance=ExtResource("1_o5qli")]
+position = Vector2(491, 666)
+
+[connection signal="timeout" from="spawnTimer" to="enemySpawner" method="onSpawnTimerTimeout"]
+[connection signal="timeout" from="preparationTimer" to="enemySpawner" method="onPreparationTimerTimeout"]
