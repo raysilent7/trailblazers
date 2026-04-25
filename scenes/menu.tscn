@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://crh7ywlcfrnyd"]
+
+[ext_resource type="Script" uid="uid://u86q7tse5god" path="res://scripts/titleScreen.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://duidfjkbtne3q" path="res://assets/banner.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://e7k1h56kxm5q" path="res://assets/start button.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://q4s205aegv5u" path="res://assets/credits button.png" id="4_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://c33sn6xtqr3ff" path="res://assets/start pressed.png" id="4_13sgg"]
+[ext_resource type="Texture2D" uid="uid://b0qfololku7ma" path="res://assets/start hover.png" id="5_i6lef"]
+[ext_resource type="Texture2D" uid="uid://st47f30faw16" path="res://assets/credits pressed.png" id="7_70i5f"]
+[ext_resource type="Texture2D" uid="uid://bok68iiwosq7t" path="res://assets/credits hover.png" id="8_mj5lg"]
+
+[node name="titleScreen" type="Control" unique_id=2133505788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+metadata/_edit_lock_ = true
+
+[node name="BG" type="ColorRect" parent="." unique_id=16070145]
+custom_minimum_size = Vector2(960, 720)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0, 0, 0.07450981, 1)
+metadata/_edit_lock_ = true
+
+[node name="banner" type="TextureRect" parent="." unique_id=1786310756]
+custom_minimum_size = Vector2(448, 128)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="buttons" type="VBoxContainer" parent="." unique_id=522867670]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 110.0
+offset_right = 50.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="start" type="TextureButton" parent="buttons" unique_id=1564304868]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_mhnvy")
+texture_pressed = ExtResource("4_13sgg")
+texture_hover = ExtResource("5_i6lef")
+
+[node name="credits" type="TextureButton" parent="buttons" unique_id=1412261196]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_4ytvr")
+texture_pressed = ExtResource("7_70i5f")
+texture_hover = ExtResource("8_mj5lg")
+
+[connection signal="pressed" from="buttons/start" to="." method="onStartPressed"]
+[connection signal="pressed" from="buttons/credits" to="." method="onCreditsPressed"]

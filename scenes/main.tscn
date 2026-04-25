@@ -5,7 +5,7 @@
 
 [node name="Main" type="Node2D" unique_id=780503707]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1900488230]
+[node name="BG" type="ColorRect" parent="." unique_id=1900488230]
 custom_minimum_size = Vector2(960, 720)
 offset_right = 960.0
 offset_bottom = 720.0
