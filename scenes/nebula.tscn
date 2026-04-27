@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bfig6d28xdyc5"]
+
+[ext_resource type="Script" uid="uid://ds4cc8ybrwuj4" path="res://scripts/nebula.gd" id="1_fwj6a"]
+
+[node name="Nebula" type="Node2D" unique_id=1831786533]
+script = ExtResource("1_fwj6a")
+
+[node name="nebulaColor" type="ColorRect" parent="." unique_id=2112342790]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.735357, 0.48452926, 0.9063318, 0.4)

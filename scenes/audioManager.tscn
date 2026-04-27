@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://pp3eo07it1pk"]
+
+[ext_resource type="AudioStream" uid="uid://bh2uscgjo3xat" path="res://assets/audio/bullet.wav" id="1_7ahar"]
+[ext_resource type="Script" uid="uid://2oaqntbriite" path="res://scripts/audioManager.gd" id="1_tv3ta"]
+[ext_resource type="AudioStream" uid="uid://fksk3xi3xvw5" path="res://assets/audio/damage.wav" id="2_tv3ta"]
+[ext_resource type="AudioStream" uid="uid://bjshp2ly1hn6f" path="res://assets/audio/shield.wav" id="3_twrc3"]
+[ext_resource type="AudioStream" uid="uid://o45ep67enhwc" path="res://assets/audio/engine.wav" id="4_6x1q5"]
+[ext_resource type="AudioStream" uid="uid://piqddjto6mcc" path="res://assets/audio/powerup.wav" id="5_rmmm8"]
+[ext_resource type="AudioStream" uid="uid://b754plkckujd0" path="res://assets/audio/enemyDmg.wav" id="6_mk1kq"]
+[ext_resource type="AudioStream" uid="uid://dcpvf3jjhsmfr" path="res://assets/audio/hover.wav" id="7_hh26a"]
+[ext_resource type="AudioStream" uid="uid://3lg3gejgo7wl" path="res://assets/audio/press.wav" id="8_s14o2"]
+[ext_resource type="AudioStream" uid="uid://bx6cywug4bjx" path="res://assets/audio/Lines of Code.mp3" id="10_rmmm8"]
+[ext_resource type="AudioStream" uid="uid://cibxxtceesn3f" path="res://assets/audio/Dark Intro.ogg" id="11_mk1kq"]
+[ext_resource type="AudioStream" uid="uid://c7nad75sgw4gk" path="res://assets/audio/Space Graveyard.mp3" id="12_hh26a"]
+
+[node name="AudioManager" type="Node2D" unique_id=612155702]
+script = ExtResource("1_tv3ta")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=1275210147]
+stream = ExtResource("1_7ahar")
+volume_db = -10.0
+
+[node name="playerHit" type="AudioStreamPlayer2D" parent="." unique_id=747715649]
+stream = ExtResource("2_tv3ta")
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="." unique_id=1589005328]
+stream = ExtResource("2_tv3ta")
+volume_db = 15.0
+pitch_scale = 0.25
+
+[node name="shieldHit" type="AudioStreamPlayer2D" parent="." unique_id=2108035201]
+stream = ExtResource("3_twrc3")
+
+[node name="engine" type="AudioStreamPlayer2D" parent="." unique_id=1839697617]
+stream = ExtResource("4_6x1q5")
+volume_db = -15.0
+
+[node name="upgrade" type="AudioStreamPlayer2D" parent="." unique_id=1664683160]
+stream = ExtResource("5_rmmm8")
+
+[node name="enemyHit" type="AudioStreamPlayer2D" parent="." unique_id=1204399137]
+stream = ExtResource("6_mk1kq")
+
+[node name="buttonHover" type="AudioStreamPlayer2D" parent="." unique_id=606454054]
+stream = ExtResource("7_hh26a")
+
+[node name="buttonPressed" type="AudioStreamPlayer2D" parent="." unique_id=2111618700]
+stream = ExtResource("8_s14o2")
+
+[node name="music1" type="AudioStreamPlayer2D" parent="." unique_id=822239998]
+stream = ExtResource("10_rmmm8")
+
+[node name="music2" type="AudioStreamPlayer2D" parent="." unique_id=1811242443]
+stream = ExtResource("11_mk1kq")
+
+[node name="music3" type="AudioStreamPlayer2D" parent="." unique_id=594552434]
+stream = ExtResource("12_hh26a")

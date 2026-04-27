@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://j7hyr2e6ltk"]
+
+[ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://d1llnmv3w0eqd" path="res://scripts/credits.gd" id="1_mah5v"]
+[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="2_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="3_8gwij"]
+[ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="4_mah5v"]
+[ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="5_kyhnv"]
+
+[node name="Control" type="Control" unique_id=261484842]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mah5v")
+
+[node name="BG" type="ColorRect" parent="." unique_id=40137768]
+custom_minimum_size = Vector2(960, 720)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0, 0, 0.07450981, 1)
+metadata/_edit_lock_ = true
+
+[node name="panel" type="TextureRect" parent="." unique_id=963263441]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0bpdh")
+
+[node name="vbox" type="VBoxContainer" parent="panel" unique_id=231654511]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -6.0
+offset_right = 0.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="credits" type="Label" parent="panel/vbox" unique_id=854014472]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2ckv8")
+text = "Universe: The Trailblazer
+Developed by: Rayan \"Shile\" Garcia
+
+Image assets:
+Rayan \"Shile\" Garcia
+
+Sound assets:
+Music: Dark Intro
+Author: Nikke
+
+Music: Lines of Code
+Author: Trevor Lentz
+
+Music: Space Graveyard
+Author: Rick Hoppmann - TinyWorlds
+
+Sound Effects:
+Zane Little
+dklon
+Spring Spring
+
+Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="back" type="TextureButton" parent="." unique_id=1010410537]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_8gwij")
+texture_pressed = ExtResource("4_mah5v")
+texture_hover = ExtResource("5_kyhnv")
+
+[connection signal="mouse_entered" from="back" to="." method="onBackMouseEntered"]
+[connection signal="pressed" from="back" to="." method="onBackPressed"]

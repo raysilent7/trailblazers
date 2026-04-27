@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://fg1aih353ghp"]
+
+[ext_resource type="Script" uid="uid://kxkhhrkaaah6" path="res://scripts/upgrade.gd" id="1_b2g4b"]
+[ext_resource type="Texture2D" uid="uid://cv1jpevd65mmt" path="res://assets/images/armor upgrade.png" id="2_g1npk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_346kr"]
+size = Vector2(32, 32)
+
+[node name="Upgrade" type="Node2D" unique_id=1259291753]
+
+[node name="upgrade" type="Area2D" parent="." unique_id=1816373314]
+script = ExtResource("1_b2g4b")
+
+[node name="upgradeSpr" type="Sprite2D" parent="upgrade" unique_id=1519671241]
+texture = ExtResource("2_g1npk")
+
+[node name="upgradeCollision" type="CollisionShape2D" parent="upgrade" unique_id=749435424]
+shape = SubResource("RectangleShape2D_346kr")
+
+[connection signal="body_entered" from="upgrade" to="upgrade" method="onBodyEntered"]

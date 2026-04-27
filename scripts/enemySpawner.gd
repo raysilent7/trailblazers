@@ -1,20 +1,30 @@
 extends Node
 
-@onready var spawnTimer: Timer = $"../spawnTimer"
-var enemyScene: PackedScene = preload("res://scenes/enemy.tscn")
+@onready var preparationTimer: Timer = $"../preparationTimer"
 
-var maxEnemies: int = 10
-var maxWaves: int = 3
+var spaceEntities: Dictionary = {
+	"basic": preload("res://scenes/enemy.tscn"),
+	"nebula": preload("res://scenes/nebula.tscn"),
+	"pixelHole": preload("res://scenes/blackHole.tscn"),
+	"star": preload("res://scenes/star.tscn")
+}
+
 var waveCounter: int = 0
+var actualWave: Dictionary
 
 func onPreparationTimerTimeout() -> void:
-	spawnTimer.start()
+	actualWave = GameState.waves[GameState.actualWave]
+	summonEnemies()
+	GameState.totalWaves += 1
+	GameState.actualWave += 1
+	if GameState.actualWave == 3:
+		get_tree().current_scene.createRandomUpgrade()
+		GameState.actualWave = 0
 
-func onSpawnTimerTimeout() -> void:
-	waveCounter += 1
-	for count in range(maxEnemies):
-		var enemy = enemyScene.instantiate()
-		enemy.global_position = Vector2(randi_range(200, 700), 0)
-		get_tree().current_scene.add_child(enemy)
-		if waveCounter == 3:
-			spawnTimer.stop()
+func summonEnemies() -> void:
+	for count in range(actualWave.get("qty")):
+		GameState.totalEnemies += 1
+		var entityScene = spaceEntities.get(actualWave.get("entity"))
+		var entity = entityScene.instantiate()
+		entity.global_position = Vector2(randi_range(50, 900), -500)
+		get_tree().current_scene.get_node("enemySpawner").add_child(entity)

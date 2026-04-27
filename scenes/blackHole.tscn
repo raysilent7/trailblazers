@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://db0ihrparvaky"]
+
+[ext_resource type="Texture2D" uid="uid://dqhe1cmdne36y" path="res://assets/images/black hole.png" id="1_6ligl"]
+[ext_resource type="Script" uid="uid://cg65mnbri8van" path="res://scripts/blackHole.gd" id="1_dlncv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlncv"]
+radius = 287.25076
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y83yh"]
+radius = 1.0
+
+[node name="BlackHole" type="Node2D" unique_id=1688130098]
+
+[node name="blackHoleGravity" type="Area2D" parent="." unique_id=446269954]
+script = ExtResource("1_dlncv")
+
+[node name="blackHoleSpr" type="Sprite2D" parent="blackHoleGravity" unique_id=973898444]
+texture = ExtResource("1_6ligl")
+
+[node name="gravityCollision" type="CollisionShape2D" parent="blackHoleGravity" unique_id=1727380277]
+shape = SubResource("CircleShape2D_dlncv")
+
+[node name="singularity" type="Area2D" parent="blackHoleGravity" unique_id=1500491798]
+
+[node name="singularityCollision" type="CollisionShape2D" parent="blackHoleGravity/singularity" unique_id=865038461]
+shape = SubResource("CircleShape2D_y83yh")
+
+[connection signal="body_entered" from="blackHoleGravity/singularity" to="blackHoleGravity" method="onSingularityBodyEntered"]

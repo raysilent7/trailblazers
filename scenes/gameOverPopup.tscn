@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cgaud2s0led16"]
+
+[ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_5e3rf"]
+[ext_resource type="Texture2D" uid="uid://dggq3jgo4ehwp" path="res://assets/images/OK button.png" id="1_7qw4h"]
+[ext_resource type="Script" uid="uid://bwws7hm3ift0y" path="res://scripts/gameOverPopup.gd" id="1_djrab"]
+[ext_resource type="Texture2D" uid="uid://dba67pa74f4ki" path="res://assets/images/OK pressed.png" id="2_5e3rf"]
+[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_1vxtv"]
+[ext_resource type="Texture2D" uid="uid://d36gbd0rdhm4r" path="res://assets/images/OK hover.png" id="3_djrab"]
+
+[node name="GameOverPopup" type="Control" unique_id=776373754]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_djrab")
+
+[node name="popupBox" type="TextureRect" parent="." unique_id=216025620]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5e3rf")
+metadata/_edit_lock_ = true
+
+[node name="message" type="Label" parent="popupBox" unique_id=110266804]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 20.0
+offset_right = 116.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_1vxtv")
+autowrap_mode = 3
+
+[node name="distance" type="Label" parent="popupBox" unique_id=318442501]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -2.0
+offset_right = 116.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_1vxtv")
+
+[node name="OK" type="TextureButton" parent="popupBox" unique_id=1895785709]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -31.0
+offset_right = 14.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_7qw4h")
+texture_pressed = ExtResource("2_5e3rf")
+texture_hover = ExtResource("3_djrab")
+
+[connection signal="mouse_entered" from="popupBox/OK" to="." method="onOkMouseEntered"]
+[connection signal="pressed" from="popupBox/OK" to="." method="onOkPressed"]

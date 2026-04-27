@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bba3ks1e4gnqx"]
+
+[ext_resource type="Script" uid="uid://0rqt8isy4b0n" path="res://scripts/star.gd" id="1_j6vao"]
+[ext_resource type="Texture2D" uid="uid://du7ui5ha4tfwy" path="res://assets/images/star.png" id="1_mcqwg"]
+[ext_resource type="Texture2D" uid="uid://bo3dfla47dvtj" path="res://assets/images/sunlight.png" id="3_ef0hr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6vao"]
+radius = 231.00217
+
+[node name="Star" type="Node2D" unique_id=1945696054]
+
+[node name="star" type="Area2D" parent="." unique_id=374609539]
+script = ExtResource("1_j6vao")
+
+[node name="starCollision" type="CollisionShape2D" parent="star" unique_id=1298475969]
+shape = SubResource("CircleShape2D_j6vao")
+
+[node name="starSpr" type="Sprite2D" parent="star" unique_id=1059034434]
+texture = ExtResource("1_mcqwg")
+
+[node name="starLight" type="PointLight2D" parent="star" unique_id=873851919]
+texture = ExtResource("3_ef0hr")
+
+[node name="dmgTimer" type="Timer" parent="star" unique_id=1500386907]
+wait_time = 2.0
+
+[connection signal="body_entered" from="star" to="star" method="onBodyEntered"]
+[connection signal="body_exited" from="star" to="star" method="onBodyExited"]
+[connection signal="timeout" from="star/dmgTimer" to="star" method="onDmgTimerTimeout"]
