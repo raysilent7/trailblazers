@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://crh7ywlcfrnyd"]
 
 [ext_resource type="Script" uid="uid://u86q7tse5god" path="res://scripts/titleScreen.gd" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/BG.gd" id="2_70i5f"]
 [ext_resource type="Texture2D" uid="uid://duidfjkbtne3q" path="res://assets/images/banner.png" id="2_vjb58"]
 [ext_resource type="Texture2D" uid="uid://e7k1h56kxm5q" path="res://assets/images/start button.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_mj5lg"]
 [ext_resource type="Texture2D" uid="uid://q4s205aegv5u" path="res://assets/images/credits button.png" id="4_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://c33sn6xtqr3ff" path="res://assets/images/start pressed.png" id="4_13sgg"]
 [ext_resource type="Texture2D" uid="uid://b0qfololku7ma" path="res://assets/images/start hover.png" id="5_i6lef"]
@@ -19,7 +21,21 @@ grow_vertical = 2
 script = ExtResource("1_yqeox")
 metadata/_edit_lock_ = true
 
+[node name="BGParallax" type="Node2D" parent="." unique_id=936981197]
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=1874842333]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("2_70i5f")
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=1221937239]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_mj5lg")
+stretch_mode = 1
+
 [node name="BG" type="ColorRect" parent="." unique_id=16070145]
+visible = false
 custom_minimum_size = Vector2(960, 720)
 layout_mode = 0
 offset_right = 960.0

@@ -19,13 +19,6 @@ func playPlayerHit():
 func playShieldHit():
 	$shieldHit.play()
 
-func playEngine():
-	if not $engine.playing:
-		$engine.play()
-
-func stopEngine():
-	$engine.stop()
-
 func playUpgrade():
 	$upgrade.play()
 

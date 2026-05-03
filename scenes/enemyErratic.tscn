@@ -1,21 +1,22 @@
-[gd_scene format=3 uid="uid://c0wj267v1374w"]
+[gd_scene format=3 uid="uid://chftm6m6q818"]
 
-[ext_resource type="Texture2D" uid="uid://c22jymaf8pgpi" path="res://assets/images/enemy.png" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://qs3jkwmgxekl" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://bn2qeu42rw0hm" path="res://scripts/enemyErratic.gd" id="1_3lj16"]
+[ext_resource type="Texture2D" uid="uid://da1ptfuj8s258" path="res://assets/images/erratic.png" id="2_3lj16"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
-radius = 8.0
-height = 28.0
+radius = 12.0
+height = 26.0
 
 [node name="Enemy" type="Node2D" unique_id=241384343 groups=["enemy"]]
 
 [node name="enemy" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
-script = ExtResource("1_md0e3")
+script = ExtResource("1_3lj16")
 
 [node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=685278957]
-texture = ExtResource("1_7p1mj")
+texture = ExtResource("2_3lj16")
 
 [node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=200466641]
+position = Vector2(0, 2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_7p1mj")
 

@@ -1,6 +1,5 @@
 extends Area2D
 
-var speedY: float = 50.0
 var maxHits: int = 1
 var hits: int = 0
 var mainScene
@@ -9,8 +8,8 @@ func _ready() -> void:
 	mainScene = get_tree().current_scene
 
 func _process(delta: float) -> void:
-	position.y += speedY * delta
-	if position.y > 1400:
+	position.y += GameState.speedY * delta
+	if global_position.y > 750:
 		GameState.totalEnemies -= 1
 		if GameState.totalEnemies <= 0:
 			GameState.totalEnemies = 0

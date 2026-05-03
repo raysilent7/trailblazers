@@ -1,6 +1,9 @@
 extends Node
 
 func _ready() -> void:
+	GameState.actualWave = 1
+	GameState.totalEnemies = 0
+	GameState.totalWaves = 0
 	get_tree().paused = false
 	Audio.startMusicSystem()
 

@@ -1,9 +1,9 @@
 extends Control
 
 func showPopup(distance):
-	Audio.StopMusicSystem()
-	$popupBox/message.text = "Sua nave foi destruída.\nSua jornada pelo universo termina aqui."
-	$popupBox/distance.text = "Você percorreu %s UA." % distance
+	Audio.stopMusicSystem()
+	$popupBox/message.text = "Your ship was destroyed.\nYour journey ends here."
+	$popupBox/distance.text = "You explored %s AU." % distance
 	visible = true
 
 func onOkPressed() -> void:

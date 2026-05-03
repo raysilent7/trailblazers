@@ -21,30 +21,29 @@ var currentProjectiles: int = baseProjectiles
 var currentShieldHits: int = baseShieldHits
 
 func _physics_process(_delta: float) -> void:
-	var inputVector = Input.get_vector("left", "right", "up", "down")
-	velocity = inputVector * currentSpeed
-	move_and_slide()
-	clampToScreen()
-	resolveAnimation(inputVector)
-	Audio.playEngine()
+	if not destroyed:
+		var inputVector = Input.get_vector("left", "right", "up", "down")
+		velocity = inputVector * currentSpeed
+		move_and_slide()
+		clampToScreen()
+		resolveAnimation(inputVector)
 
 func resolveAnimation(inputVector):
-	if not destroyed:
-		var baseAnim := "idle"
-		var dmgSuffix := ""
+	var baseAnim := "idle"
+	var dmgSuffix := ""
 
-		
-		if inputVector.x > 0:
-			baseAnim = "right"
-		elif inputVector.x < 0:
-			baseAnim = "left"
+	
+	if inputVector.x > 0:
+		baseAnim = "right"
+	elif inputVector.x < 0:
+		baseAnim = "left"
 
-		if hits > 0 and inputVector.x == 0:
-			dmgSuffix = str(hits) + "Dmg"
-		elif hits > 0 and inputVector.x != 0:
-			dmgSuffix = "Dmg"
+	if hits > 0 and inputVector.x == 0:
+		dmgSuffix = str(hits) + "Dmg"
+	elif hits > 0 and inputVector.x != 0:
+		dmgSuffix = "Dmg"
 
-		anim.play(baseAnim + dmgSuffix)
+	anim.play(baseAnim + dmgSuffix)
 
 func _process(_delta: float) -> void:
 	shooting = Input.is_action_pressed("shoot")
@@ -55,8 +54,8 @@ func _process(_delta: float) -> void:
 
 func clampToScreen():
 	var viewport = get_viewport_rect()
-	global_position.x = clamp(global_position.x, 0, viewport.size.x)
-	global_position.y = clamp(global_position.y, 0, viewport.size.y)
+	global_position.x = clamp(global_position.x, 16, viewport.size.x-16)
+	global_position.y = clamp(global_position.y, 16, viewport.size.y-16)
 
 func start_fire_cooldown():
 	canShoot = false
@@ -83,27 +82,29 @@ func takeHit():
 		updateShieldVisual()
 		return
 
-	hits += 1
-	Audio.playPlayerHit()
-	hud.updateHits(hits)
-	print("player hits: " + str(hits))
-	if hits >= maxHits:
+	if not destroyed:
+		hits += 1
+		Audio.playPlayerHit()
+		hud.updateHits(hits)
+		print("player hits: " + str(hits))
+		if hits >= maxHits:
+			get_tree().paused = true
+			destroyed = true
+			Audio.playExplosion()
+			anim.play("explosion")
+			await get_tree().create_timer(2.0).timeout
+			call_deferred("queue_free")
+			get_tree().current_scene.showGameOverPopup()
+
+func destroyShip():
+	if not destroyed:
+		get_tree().paused = true
 		destroyed = true
 		Audio.playExplosion()
 		anim.play("explosion")
-		await anim.animation_finished
+		await get_tree().create_timer(2.0).timeout
 		call_deferred("queue_free")
 		get_tree().current_scene.showGameOverPopup()
-		get_tree().paused = true
-
-func destroyShip():
-	destroyed = true
-	Audio.playExplosion()
-	anim.play("explosion")
-	await anim.animation_finished
-	call_deferred("queue_free")
-	get_tree().current_scene.showGameOverPopup()
-	get_tree().paused = true
 
 func updateShieldVisual():
 	if currentShieldHits <= 0:

@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += speed * delta
-	if position.y > 1600:
+	if global_position.y > 860:
 		GameState.totalEnemies -= 1
 		if GameState.totalEnemies <= 0:
 			GameState.totalEnemies = 0

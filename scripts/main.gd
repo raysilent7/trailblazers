@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $player/shipBody
-@onready var cheat1: Button = $speedCheat
-@onready var cheat2: Button = $bulletCheat
-@onready var cheat3: Button = $armorCheat
+@onready var cheat1: Button = $cheats/speedCheat
+@onready var cheat2: Button = $cheats/bulletCheat
+@onready var cheat3: Button = $cheats/armorCheat
 @onready var preparationTimer: Timer = $preparationTimer
 @onready var HUDLayer: CanvasLayer = $HUD
 var upgradeScene: PackedScene = preload("res://scenes/upgrade.tscn")
@@ -13,14 +13,6 @@ var distanceTravelled: int
 
 func _ready() -> void:
 	Audio.startMusicSystem()
-	if OS.is_debug_build():
-		cheat1.visible = true
-		cheat2.visible = true
-		cheat3.visible = true
-	else:
-		cheat1.visible = false
-		cheat2.visible = false
-		cheat3.visible = false
 
 func onArmorCheatPressed() -> void:
 	player.applyUpgrade("shield")
@@ -33,7 +25,14 @@ func onSpeedCheatPressed() -> void:
 
 func onDistanceTravelledTimeout() -> void:
 	distanceTravelled += 1
+	GameState.speedY = min(GameState.speedY, 600) + 0.5
 	HUDLayer.updateDistance(distanceTravelled)
+
+func onInvinciblePressed() -> void:
+	player.destroyed = not player.destroyed
+
+func onSoundPressed() -> void:
+	Audio.stopMusicSystem()
 
 func createRandomUpgrade() -> void:
 	var upgrade = upgradeScene.instantiate()

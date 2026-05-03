@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds4cc8ybrwuj4" path="res://scripts/nebula.gd" id="1_fwj6a"]
 
-[node name="Nebula" type="Node2D" unique_id=1831786533]
+[node name="Nebula" type="Node2D" unique_id=1831786533 groups=["spaceObjects"]]
 script = ExtResource("1_fwj6a")
 
 [node name="nebulaColor" type="ColorRect" parent="." unique_id=2112342790]

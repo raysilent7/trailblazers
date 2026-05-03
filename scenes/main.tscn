@@ -6,16 +6,24 @@
 [ext_resource type="Script" uid="uid://401c044bmo58" path="res://scripts/HUD.gd" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://byuonuqs2lrld" path="res://assets/images/dot.png" id="5_tbgi4"]
 [ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/BG.gd" id="7_trceg"]
+[ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="8_tipki"]
 
 [node name="Main" type="Node2D" unique_id=780503707]
 script = ExtResource("1_sugp2")
 
-[node name="BG" type="ColorRect" parent="." unique_id=1900488230]
-custom_minimum_size = Vector2(960, 720)
-offset_right = 960.0
-offset_bottom = 720.0
-color = Color(0, 0, 0.07450981, 1)
-metadata/_edit_lock_ = true
+[node name="BGParallax" type="Node2D" parent="." unique_id=713916239]
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=1518668737]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("7_trceg")
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=323967914]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_tipki")
+stretch_mode = 1
 
 [node name="distanceTravelled" type="Timer" parent="." unique_id=880972756]
 autostart = true
@@ -31,43 +39,61 @@ script = ExtResource("1_0wfyh")
 [node name="player" parent="." unique_id=1396747313 instance=ExtResource("1_o5qli")]
 position = Vector2(491, 666)
 
-[node name="speedCheat" type="Button" parent="." unique_id=274059491]
-offset_left = 4.0
-offset_top = 118.0
-offset_right = 59.0
-offset_bottom = 149.0
+[node name="cheats" type="Node2D" parent="." unique_id=1066532222]
+
+[node name="speedCheat" type="Button" parent="cheats" unique_id=274059491]
+offset_left = 14.0
+offset_top = 121.0
+offset_right = 69.0
+offset_bottom = 152.0
 text = "speed"
 
-[node name="bulletCheat" type="Button" parent="." unique_id=883894192]
-offset_left = 8.0
-offset_top = 195.0
-offset_right = 61.0
-offset_bottom = 226.0
+[node name="bulletCheat" type="Button" parent="cheats" unique_id=883894192]
+offset_left = 21.0
+offset_top = 198.0
+offset_right = 74.0
+offset_bottom = 229.0
 text = "bullet"
 
-[node name="armorCheat" type="Button" parent="." unique_id=1991382874]
-offset_left = 6.0
-offset_top = 158.0
-offset_right = 63.0
-offset_bottom = 189.0
+[node name="armorCheat" type="Button" parent="cheats" unique_id=1991382874]
+offset_left = 16.0
+offset_top = 161.0
+offset_right = 73.0
+offset_bottom = 192.0
 text = "armor"
+
+[node name="invincible" type="Button" parent="cheats" unique_id=250020875]
+offset_left = 15.0
+offset_top = 231.0
+offset_right = 97.0
+offset_bottom = 262.0
+text = "invincible"
+
+[node name="sound" type="Button" parent="cheats" unique_id=900066417]
+offset_left = 19.0
+offset_top = 265.0
+offset_right = 75.0
+offset_bottom = 296.0
+text = "sound
+"
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=219636573]
 layer = 10
 script = ExtResource("4_jyhfs")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=289097790]
+[node name="distanceBox" type="HBoxContainer" parent="HUD" unique_id=289097790]
 offset_left = 34.0
 offset_top = 65.0
 offset_right = 245.0
 offset_bottom = 105.0
+metadata/_edit_lock_ = true
 
-[node name="title" type="Label" parent="HUD/HBoxContainer" unique_id=1054522039]
+[node name="title" type="Label" parent="HUD/distanceBox" unique_id=1054522039]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_tefeu")
 text = "DISTANCE FROM EARTH: "
 
-[node name="distance" type="Label" parent="HUD/HBoxContainer" unique_id=10240082]
+[node name="distance" type="Label" parent="HUD/distanceBox" unique_id=10240082]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_tefeu")
 
@@ -76,6 +102,7 @@ offset_left = 34.0
 offset_top = 20.0
 offset_right = 276.0
 offset_bottom = 60.0
+metadata/_edit_lock_ = true
 
 [node name="hits" type="Label" parent="HUD/hitsBox" unique_id=341190701]
 layout_mode = 2
@@ -116,6 +143,7 @@ offset_top = 20.0
 offset_right = 478.0
 offset_bottom = 60.0
 grow_horizontal = 2
+metadata/_edit_lock_ = true
 
 [node name="shield" type="Label" parent="HUD/shieldBox" unique_id=1931409356]
 layout_mode = 2
@@ -149,6 +177,7 @@ offset_top = 20.0
 offset_right = 667.0
 offset_bottom = 60.0
 grow_horizontal = 2
+metadata/_edit_lock_ = true
 
 [node name="speed" type="Label" parent="HUD/speedBox" unique_id=57583543]
 layout_mode = 2
@@ -182,6 +211,7 @@ offset_top = 20.0
 offset_right = 923.0
 offset_bottom = 60.0
 grow_horizontal = 2
+metadata/_edit_lock_ = true
 
 [node name="projectiles" type="Label" parent="HUD/projectileBox" unique_id=916056734]
 layout_mode = 2
@@ -211,6 +241,8 @@ stretch_mode = 3
 
 [connection signal="timeout" from="distanceTravelled" to="." method="onDistanceTravelledTimeout"]
 [connection signal="timeout" from="preparationTimer" to="enemySpawner" method="onPreparationTimerTimeout"]
-[connection signal="pressed" from="speedCheat" to="." method="onSpeedCheatPressed"]
-[connection signal="pressed" from="bulletCheat" to="." method="onBulletCheatPressed"]
-[connection signal="pressed" from="armorCheat" to="." method="onArmorCheatPressed"]
+[connection signal="pressed" from="cheats/speedCheat" to="." method="onSpeedCheatPressed"]
+[connection signal="pressed" from="cheats/bulletCheat" to="." method="onBulletCheatPressed"]
+[connection signal="pressed" from="cheats/armorCheat" to="." method="onArmorCheatPressed"]
+[connection signal="pressed" from="cheats/invincible" to="." method="onInvinciblePressed"]
+[connection signal="pressed" from="cheats/sound" to="." method="onSoundPressed"]
