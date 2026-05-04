@@ -82,5 +82,12 @@ texture_normal = ExtResource("1_7qw4h")
 texture_pressed = ExtResource("2_5e3rf")
 texture_hover = ExtResource("3_djrab")
 
+[node name="OKTouch" type="TouchScreenButton" parent="popupBox" unique_id=1861914974]
+position = Vector2(114, 225)
+texture_normal = ExtResource("1_7qw4h")
+texture_pressed = ExtResource("2_5e3rf")
+visibility_mode = 1
+
 [connection signal="mouse_entered" from="popupBox/OK" to="." method="onOkMouseEntered"]
 [connection signal="pressed" from="popupBox/OK" to="." method="onOkPressed"]
+[connection signal="pressed" from="popupBox/OKTouch" to="." method="onOkTouchPressed"]

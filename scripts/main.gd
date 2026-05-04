@@ -4,6 +4,7 @@ extends Node2D
 @onready var cheats: Node2D = $cheats
 @onready var preparationTimer: Timer = $preparationTimer
 @onready var HUDLayer: CanvasLayer = $HUD
+@onready var joystick: Node2D = $HUD/joystick
 var upgradeScene: PackedScene = preload("res://scenes/upgrade.tscn")
 var gameOverPopupScene: PackedScene = preload("res://scenes/gameOverPopup.tscn")
 
@@ -12,6 +13,7 @@ var distanceTravelled: int
 func _ready() -> void:
 	Audio.startMusicSystem()
 	cheats.visible = GameState.isDebugMode
+	joystick.visible = GameState.isApkMode
 
 func onArmorCheatPressed() -> void:
 	player.applyUpgrade("shield")

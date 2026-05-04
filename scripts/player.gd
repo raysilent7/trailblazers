@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $shipAnimeSpr
 @onready var shield: Sprite2D = $shield
 @onready var hud: CanvasLayer = $"../../HUD"
+@onready var joystick: Node2D = $"../../HUD/joystick"
 
 var bulletScene: PackedScene = preload("res://scenes/bullet.tscn")
 var baseSpeed: float = 300.0
@@ -22,7 +23,7 @@ var currentShieldHits: int = baseShieldHits
 
 func _physics_process(_delta: float) -> void:
 	if not destroyed:
-		var inputVector = Input.get_vector("left", "right", "up", "down")
+		var inputVector = getInputVector()
 		velocity = inputVector * currentSpeed
 		move_and_slide()
 		clampToScreen()
@@ -34,6 +35,15 @@ func _process(_delta: float) -> void:
 	if shooting and canShoot:
 		shoot()
 		startFireCooldown()
+
+func getInputVector():
+	var v = Input.get_vector("left", "right", "up", "down")
+
+	if joystick:
+		if joystick.output.length() > 0:
+			v = joystick.output
+
+	return v
 
 func resolveAnimation(inputVector):
 	var baseAnim := "idle"

@@ -12,3 +12,7 @@ func onOkPressed() -> void:
 
 func onOkMouseEntered() -> void:
 	Audio.playButtonHover()
+
+func onOkTouchPressed() -> void:
+	Audio.playButtonPress()
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
