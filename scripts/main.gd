@@ -1,9 +1,7 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $player/shipBody
-@onready var cheat1: Button = $cheats/speedCheat
-@onready var cheat2: Button = $cheats/bulletCheat
-@onready var cheat3: Button = $cheats/armorCheat
+@onready var cheats: Node2D = $cheats
 @onready var preparationTimer: Timer = $preparationTimer
 @onready var HUDLayer: CanvasLayer = $HUD
 var upgradeScene: PackedScene = preload("res://scenes/upgrade.tscn")
@@ -13,6 +11,7 @@ var distanceTravelled: int
 
 func _ready() -> void:
 	Audio.startMusicSystem()
+	cheats.visible = GameState.isDebugMode
 
 func onArmorCheatPressed() -> void:
 	player.applyUpgrade("shield")

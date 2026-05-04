@@ -64,9 +64,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = 110.0
+offset_top = 108.0
 offset_right = 50.0
-offset_bottom = 150.0
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -87,7 +87,21 @@ texture_normal = ExtResource("4_4ytvr")
 texture_pressed = ExtResource("7_70i5f")
 texture_hover = ExtResource("8_mj5lg")
 
+[node name="startTouch" type="TouchScreenButton" parent="buttons" unique_id=1277675855]
+position = Vector2(21, -11)
+texture_normal = ExtResource("3_mhnvy")
+texture_pressed = ExtResource("4_13sgg")
+visibility_mode = 1
+
+[node name="creditsTouch" type="TouchScreenButton" parent="buttons" unique_id=1875867717]
+position = Vector2(9, 31)
+texture_normal = ExtResource("4_4ytvr")
+texture_pressed = ExtResource("7_70i5f")
+visibility_mode = 1
+
 [connection signal="mouse_entered" from="buttons/start" to="." method="onStartMouseEntered"]
 [connection signal="pressed" from="buttons/start" to="." method="onStartPressed"]
 [connection signal="mouse_entered" from="buttons/credits" to="." method="onCreditsMouseEntered"]
 [connection signal="pressed" from="buttons/credits" to="." method="onCreditsPressed"]
+[connection signal="pressed" from="buttons/startTouch" to="." method="onStartTouchPressed"]
+[connection signal="pressed" from="buttons/creditsTouch" to="." method="onCreditsTouchPressed"]

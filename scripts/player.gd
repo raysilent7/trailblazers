@@ -28,6 +28,13 @@ func _physics_process(_delta: float) -> void:
 		clampToScreen()
 		resolveAnimation(inputVector)
 
+func _process(_delta: float) -> void:
+	shooting = Input.is_action_pressed("shoot")
+
+	if shooting and canShoot:
+		shoot()
+		startFireCooldown()
+
 func resolveAnimation(inputVector):
 	var baseAnim := "idle"
 	var dmgSuffix := ""
@@ -45,19 +52,12 @@ func resolveAnimation(inputVector):
 
 	anim.play(baseAnim + dmgSuffix)
 
-func _process(_delta: float) -> void:
-	shooting = Input.is_action_pressed("shoot")
-
-	if shooting and canShoot:
-		shoot()
-		start_fire_cooldown()
-
 func clampToScreen():
 	var viewport = get_viewport_rect()
 	global_position.x = clamp(global_position.x, 16, viewport.size.x-16)
 	global_position.y = clamp(global_position.y, 16, viewport.size.y-16)
 
-func start_fire_cooldown():
+func startFireCooldown():
 	canShoot = false
 	await get_tree().create_timer(0.5).timeout
 	canShoot = true

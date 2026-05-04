@@ -95,5 +95,12 @@ texture_normal = ExtResource("3_8gwij")
 texture_pressed = ExtResource("4_mah5v")
 texture_hover = ExtResource("5_kyhnv")
 
+[node name="backTouch" type="TouchScreenButton" parent="." unique_id=553564604]
+position = Vector2(900, 20)
+texture_normal = ExtResource("3_8gwij")
+texture_pressed = ExtResource("4_mah5v")
+visibility_mode = 1
+
 [connection signal="mouse_entered" from="back" to="." method="onBackMouseEntered"]
 [connection signal="pressed" from="back" to="." method="onBackPressed"]
+[connection signal="pressed" from="backTouch" to="." method="onBackTouchPressed"]

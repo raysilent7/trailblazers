@@ -21,4 +21,4 @@ func updateShield(level):
 		child.visible = not child.visible
 
 func updateDistance(dist):
-	$HBoxContainer/distance.text = str(int(dist)) + " AU"
+	$distanceBox/distance.text = str(int(dist)) + " AU"
