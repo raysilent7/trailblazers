@@ -7,6 +7,7 @@ extends Node2D
 @onready var joystick: Node2D = $HUD/joystick
 var upgradeScene: PackedScene = preload("res://scenes/upgrade.tscn")
 var gameOverPopupScene: PackedScene = preload("res://scenes/gameOverPopup.tscn")
+var pausePopupScene: PackedScene = preload("res://scenes/pauseMenu.tscn")
 
 var distanceTravelled: int
 
@@ -14,6 +15,12 @@ func _ready() -> void:
 	Audio.startMusicSystem()
 	cheats.visible = GameState.isDebugMode
 	joystick.visible = GameState.isApkMode
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		var pauseMenu = pausePopupScene.instantiate()
+		HUDLayer.add_child(pauseMenu)
+		get_tree().paused = true
 
 func onArmorCheatPressed() -> void:
 	player.applyUpgrade("shield")
@@ -26,7 +33,7 @@ func onSpeedCheatPressed() -> void:
 
 func onDistanceTravelledTimeout() -> void:
 	distanceTravelled += 1
-	GameState.speedY = min(GameState.speedY, 600) + 0.5
+	GameState.speedY = min(GameState.speedY, 400) + 0.5
 	HUDLayer.updateDistance(distanceTravelled)
 
 func onInvinciblePressed() -> void:

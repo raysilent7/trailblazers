@@ -5,11 +5,11 @@ var frequency: float = 3.0
 var dir: int = 0
 var time: float = 0.0
 
-func _ready():
+func _ready() -> void:
 	dir = [-1, 1].pick_random()
 	mainScene = get_tree().current_scene
 
-func _process(delta):
+func _process(delta: float) -> void:
 	time += delta
 	position.x += sin(time * frequency) * amplitude * delta * dir
 	position.y += GameState.speedY * delta

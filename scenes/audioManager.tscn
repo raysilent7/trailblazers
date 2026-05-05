@@ -16,41 +16,38 @@
 process_mode = 3
 script = ExtResource("1_tv3ta")
 
-[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=1275210147]
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=1275210147 groups=["effect"]]
 stream = ExtResource("1_7ahar")
-volume_db = -10.0
+volume_db = -15.0
 
-[node name="playerHit" type="AudioStreamPlayer2D" parent="." unique_id=747715649]
+[node name="playerHit" type="AudioStreamPlayer2D" parent="." unique_id=747715649 groups=["effect"]]
 stream = ExtResource("2_tv3ta")
 
-[node name="explosion" type="AudioStreamPlayer2D" parent="." unique_id=1589005328]
+[node name="explosion" type="AudioStreamPlayer2D" parent="." unique_id=1589005328 groups=["effect"]]
 stream = ExtResource("2_tv3ta")
 volume_db = 24.0
 pitch_scale = 0.25
 
-[node name="shieldHit" type="AudioStreamPlayer2D" parent="." unique_id=2108035201]
+[node name="shieldHit" type="AudioStreamPlayer2D" parent="." unique_id=2108035201 groups=["effect"]]
 stream = ExtResource("3_twrc3")
 
-[node name="upgrade" type="AudioStreamPlayer2D" parent="." unique_id=1664683160]
+[node name="upgrade" type="AudioStreamPlayer2D" parent="." unique_id=1664683160 groups=["effect"]]
 stream = ExtResource("5_rmmm8")
 
-[node name="enemyHit" type="AudioStreamPlayer2D" parent="." unique_id=1204399137]
+[node name="enemyHit" type="AudioStreamPlayer2D" parent="." unique_id=1204399137 groups=["effect"]]
 stream = ExtResource("6_mk1kq")
 
-[node name="buttonHover" type="AudioStreamPlayer2D" parent="." unique_id=606454054]
+[node name="buttonHover" type="AudioStreamPlayer2D" parent="." unique_id=606454054 groups=["effect"]]
 stream = ExtResource("7_hh26a")
 
-[node name="buttonPressed" type="AudioStreamPlayer2D" parent="." unique_id=2111618700]
+[node name="buttonPressed" type="AudioStreamPlayer2D" parent="." unique_id=2111618700 groups=["effect"]]
 stream = ExtResource("8_s14o2")
 
-[node name="music1" type="AudioStreamPlayer2D" parent="." unique_id=822239998]
+[node name="music1" type="AudioStreamPlayer2D" parent="." unique_id=822239998 groups=["music"]]
 stream = ExtResource("10_rmmm8")
-volume_db = -15.0
 
-[node name="music2" type="AudioStreamPlayer2D" parent="." unique_id=1811242443]
+[node name="music2" type="AudioStreamPlayer2D" parent="." unique_id=1811242443 groups=["music"]]
 stream = ExtResource("11_mk1kq")
-volume_db = -10.0
 
-[node name="music3" type="AudioStreamPlayer2D" parent="." unique_id=594552434]
+[node name="music3" type="AudioStreamPlayer2D" parent="." unique_id=594552434 groups=["music"]]
 stream = ExtResource("12_hh26a")
-volume_db = -10.0

@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_0bpdh"]
 [ext_resource type="Script" uid="uid://d1llnmv3w0eqd" path="res://scripts/credits.gd" id="1_mah5v"]
 [ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="2_2ckv8"]
+[ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/BG.gd" id="2_ooihk"]
 [ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="3_8gwij"]
+[ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_ih6pn"]
 [ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="4_mah5v"]
 [ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="5_kyhnv"]
 
@@ -16,13 +18,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mah5v")
 
-[node name="BG" type="ColorRect" parent="." unique_id=40137768]
-custom_minimum_size = Vector2(960, 720)
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 720.0
-color = Color(0, 0, 0.07450981, 1)
-metadata/_edit_lock_ = true
+[node name="BGParallax" type="Node2D" parent="." unique_id=175746837]
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=2048810878]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("2_ooihk")
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=425547606]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ih6pn")
+stretch_mode = 1
 
 [node name="panel" type="TextureRect" parent="." unique_id=963263441]
 layout_mode = 1
@@ -86,21 +93,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -60.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 60.0
+offset_left = -100.0
+offset_top = 40.0
+offset_right = -60.0
+offset_bottom = 80.0
 grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("3_8gwij")
 texture_pressed = ExtResource("4_mah5v")
 texture_hover = ExtResource("5_kyhnv")
 
-[node name="backTouch" type="TouchScreenButton" parent="." unique_id=553564604]
-position = Vector2(900, 20)
-texture_normal = ExtResource("3_8gwij")
-texture_pressed = ExtResource("4_mah5v")
-visibility_mode = 1
-
 [connection signal="mouse_entered" from="back" to="." method="onBackMouseEntered"]
 [connection signal="pressed" from="back" to="." method="onBackPressed"]
-[connection signal="pressed" from="backTouch" to="." method="onBackTouchPressed"]

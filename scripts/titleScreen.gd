@@ -1,7 +1,8 @@
 extends Node
 
-@onready var start: TextureButton = $buttons/start
-@onready var credits: TextureButton = $buttons/credits
+@onready var start: Button = $buttons/start
+@onready var credits: Button = $buttons/credits
+@onready var options: Button = $buttons/options
 
 func _ready() -> void:
 	GameState.actualWave = 1
@@ -9,27 +10,24 @@ func _ready() -> void:
 	GameState.totalWaves = 0
 	get_tree().paused = false
 	Audio.startMusicSystem()
-	start.visible = not GameState.isApkMode
-	credits.visible = not GameState.isApkMode
-
-func onStartPressed() -> void:
-	Audio.playButtonPress()
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func onCreditsPressed() -> void:
 	Audio.playButtonPress()
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
-func onStartMouseEntered() -> void:
-	Audio.playButtonHover()
-
 func onCreditsMouseEntered() -> void:
 	Audio.playButtonHover()
 
-func onStartTouchPressed() -> void:
+func onOptionsPressed() -> void:
+	Audio.playButtonPress()
+	get_tree().change_scene_to_file("res://scenes/optionsMenu.tscn")
+
+func onOptionsMouseEntered() -> void:
+	Audio.playButtonHover()
+
+func onStartPressed() -> void:
 	Audio.playButtonPress()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
-func onCreditsTouchPressed() -> void:
-	Audio.playButtonPress()
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+func onStartMouseEntered() -> void:
+	Audio.playButtonHover()

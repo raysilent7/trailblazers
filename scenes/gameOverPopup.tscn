@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://cgaud2s0led16"]
 
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_5e3rf"]
-[ext_resource type="Texture2D" uid="uid://dggq3jgo4ehwp" path="res://assets/images/OK button.png" id="1_7qw4h"]
 [ext_resource type="Script" uid="uid://bwws7hm3ift0y" path="res://scripts/gameOverPopup.gd" id="1_djrab"]
-[ext_resource type="Texture2D" uid="uid://dba67pa74f4ki" path="res://assets/images/OK pressed.png" id="2_5e3rf"]
 [ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_1vxtv"]
-[ext_resource type="Texture2D" uid="uid://d36gbd0rdhm4r" path="res://assets/images/OK hover.png" id="3_djrab"]
 
 [node name="GameOverPopup" type="Control" unique_id=776373754]
 process_mode = 3
@@ -65,29 +62,23 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("3_1vxtv")
 
-[node name="OK" type="TextureButton" parent="popupBox" unique_id=1895785709]
+[node name="OK" type="Button" parent="popupBox" unique_id=1489481982]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -14.0
-offset_top = -31.0
-offset_right = 14.0
-offset_bottom = -10.0
+offset_left = -27.0
+offset_top = -52.0
+offset_right = 27.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("1_7qw4h")
-texture_pressed = ExtResource("2_5e3rf")
-texture_hover = ExtResource("3_djrab")
-
-[node name="OKTouch" type="TouchScreenButton" parent="popupBox" unique_id=1861914974]
-position = Vector2(114, 225)
-texture_normal = ExtResource("1_7qw4h")
-texture_pressed = ExtResource("2_5e3rf")
-visibility_mode = 1
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_1vxtv")
+theme_override_font_sizes/font_size = 32
+text = "OK"
 
 [connection signal="mouse_entered" from="popupBox/OK" to="." method="onOkMouseEntered"]
 [connection signal="pressed" from="popupBox/OK" to="." method="onOkPressed"]
-[connection signal="pressed" from="popupBox/OKTouch" to="." method="onOkTouchPressed"]

@@ -5,7 +5,7 @@ var screenMargin := 10.0
 var dir := 0
 var timeToChange := 0.0
 
-func _ready():
+func _ready() -> void:
 	pickNewDirection()
 	mainScene = get_tree().current_scene
 
@@ -13,7 +13,7 @@ func pickNewDirection():
 	dir = randi_range(-1, 1)
 	timeToChange = randf_range(1.0, 1.6)
 
-func _process(delta):
+func _process(delta: float) -> void:
 	timeToChange -= delta
 	var viewport = get_viewport_rect()
 

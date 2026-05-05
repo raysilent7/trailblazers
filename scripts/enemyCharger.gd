@@ -7,7 +7,7 @@ var chargeSpeed := 700.0
 var state := "descending"
 var direction := Vector2.ZERO
 
-func _process(delta):
+func _process(delta: float) -> void:
 	match state:
 		"descending":
 			position.y += GameState.speedY * delta
