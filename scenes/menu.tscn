@@ -30,15 +30,6 @@ offset_bottom = 40.0
 texture = ExtResource("3_mj5lg")
 stretch_mode = 1
 
-[node name="BG" type="ColorRect" parent="." unique_id=16070145]
-visible = false
-custom_minimum_size = Vector2(960, 720)
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 720.0
-color = Color(0, 0, 0.07450981, 1)
-metadata/_edit_lock_ = true
-
 [node name="banner" type="TextureRect" parent="." unique_id=1786310756]
 custom_minimum_size = Vector2(448, 128)
 layout_mode = 1
@@ -91,9 +82,18 @@ theme_override_fonts/font = ExtResource("5_mj5lg")
 theme_override_font_sizes/font_size = 48
 text = "CREDITS"
 
+[node name="score" type="Button" parent="buttons" unique_id=1337818999]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("5_mj5lg")
+theme_override_font_sizes/font_size = 48
+text = "SCORE"
+
 [connection signal="mouse_entered" from="buttons/start" to="." method="onStartMouseEntered"]
 [connection signal="pressed" from="buttons/start" to="." method="onStartPressed"]
 [connection signal="mouse_entered" from="buttons/options" to="." method="onOptionsMouseEntered"]
 [connection signal="pressed" from="buttons/options" to="." method="onOptionsPressed"]
 [connection signal="mouse_entered" from="buttons/credits" to="." method="onCreditsMouseEntered"]
 [connection signal="pressed" from="buttons/credits" to="." method="onCreditsPressed"]
+[connection signal="mouse_entered" from="buttons/score" to="." method="onScoreMouseEntered"]
+[connection signal="pressed" from="buttons/score" to="." method="onScorePressed"]

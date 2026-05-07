@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 GameState="*uid://cdy7ut1lupn5i"
 Audio="*uid://pp3eo07it1pk"
+PlayerData="*uid://f5goi1271iaw"
 
 [display]
 

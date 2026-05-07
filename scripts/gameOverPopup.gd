@@ -3,7 +3,8 @@ extends Control
 func showPopup(distance):
 	Audio.stopMusicSystem()
 	$popupBox/message.text = "Your ship was destroyed.\nYour journey ends here."
-	$popupBox/distance.text = "You explored %s AU." % distance
+	$popupBox/distance.text = "You explored %s light years." % distance
+	PlayerData.addScore(distance)
 	visible = true
 
 func onOkPressed() -> void:

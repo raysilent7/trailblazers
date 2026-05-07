@@ -6,18 +6,24 @@ extends Control
 @onready var muteMusicCB: CheckBox = $menuBox/musicMute
 @onready var muteSFXCB: CheckBox = $menuBox/soundFXMute
 
+var mainScene
+
 func _ready() -> void:
 	generalVolSlider.value = Audio.generalVol
 	musicVolSlider.value = Audio.musicVol
 	soundFXVolSlider.value = Audio.FXVol
 	muteMusicCB.button_pressed = Audio.muteMusic
 	muteSFXCB.button_pressed = Audio.muteFX
+	mainScene = get_tree().current_scene
 
 func onContinuePressed() -> void:
+	Audio.playButtonPress()
 	get_tree().paused = false
 	queue_free()
 
 func onMainMenuPressed() -> void:
+	PlayerData.addScore(mainScene.distanceTravelled)
+	Audio.playButtonPress()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
@@ -35,3 +41,9 @@ func onSoundFxMuteToggled(toggledOn: bool) -> void:
 
 func onMusicMuteToggled(toggledOn: bool) -> void:
 	Audio.setMuteMusic(toggledOn)
+
+func onContinueMouseEntered() -> void:
+	Audio.playButtonHover()
+
+func onMainMenuMouseEntered() -> void:
+	Audio.playButtonHover()

@@ -34,14 +34,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -57.5
-offset_top = 20.0
-offset_right = 57.5
-offset_bottom = 43.0
+offset_left = -172.5
+offset_top = 30.0
+offset_right = 172.5
+offset_bottom = 66.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("2_bcaeg")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "GAME PAUSED"
 
 [node name="continue" type="Button" parent="menuBox" unique_id=1654558753]
@@ -213,7 +213,9 @@ theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("2_bcaeg")
 text = "MUTE MUSIC"
 
+[connection signal="mouse_entered" from="menuBox/continue" to="." method="onContinueMouseEntered"]
 [connection signal="pressed" from="menuBox/continue" to="." method="onContinuePressed"]
+[connection signal="mouse_entered" from="menuBox/mainMenu" to="." method="onMainMenuMouseEntered"]
 [connection signal="pressed" from="menuBox/mainMenu" to="." method="onMainMenuPressed"]
 [connection signal="value_changed" from="menuBox/generalVolume" to="." method="onGeneralVolumeValueChanged"]
 [connection signal="value_changed" from="menuBox/soundFXVolume" to="." method="onSoundFxVolumeValueChanged"]

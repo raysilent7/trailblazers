@@ -31,3 +31,10 @@ func onStartPressed() -> void:
 
 func onStartMouseEntered() -> void:
 	Audio.playButtonHover()
+
+func onScorePressed() -> void:
+	Audio.playButtonPress()
+	get_tree().change_scene_to_file("res://scenes/scoreBoard.tscn")
+
+func onScoreMouseEntered() -> void:
+	Audio.playButtonHover()
