@@ -8,7 +8,8 @@ var spaceEntities: Dictionary = {
 	"star": preload("res://scenes/star.tscn"),
 	"erratic": preload("res://scenes/enemyErratic.tscn"),
 	"zigZag": preload("res://scenes/enemyZigZag.tscn"),
-	"charger": preload("res://scenes/enemyCharger.tscn")
+	"charger": preload("res://scenes/enemyCharger.tscn"),
+	"shooter": preload("res://scenes/shooterEnemy.tscn")
 }
 
 var waveCounter: int = 0

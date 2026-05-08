@@ -6,8 +6,8 @@ var dir: int = 0
 var time: float = 0.0
 
 func _ready() -> void:
+	super._ready()
 	dir = [-1, 1].pick_random()
-	mainScene = get_tree().current_scene
 
 func _process(delta: float) -> void:
 	time += delta

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://yakna6gqr1pg"]
+
+[ext_resource type="Texture2D" uid="uid://bier7t2usemq6" path="res://assets/images/shooter.png" id="1_361bg"]
+[ext_resource type="Script" uid="uid://c8g5chked7wuw" path="res://scripts/shooter.gd" id="1_w4gdk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4gdk"]
+radius = 9.0
+height = 24.0
+
+[node name="Enemy" type="Node2D" unique_id=790581067 groups=["enemy"]]
+
+[node name="enemy" type="Area2D" parent="." unique_id=590729499 groups=["enemy"]]
+script = ExtResource("1_w4gdk")
+
+[node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=346624132]
+texture = ExtResource("1_361bg")
+
+[node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=1589525974]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_w4gdk")
+
+[node name="fireRate" type="Timer" parent="enemy" unique_id=1087025883]
+wait_time = 1.5
+
+[connection signal="area_entered" from="enemy" to="enemy" method="onAreaEntered"]
+[connection signal="body_entered" from="enemy" to="enemy" method="onBodyEntered"]
+[connection signal="timeout" from="enemy/fireRate" to="enemy" method="onFireRateTimeout"]

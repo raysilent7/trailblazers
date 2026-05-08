@@ -14,12 +14,13 @@ var isApkMode: bool = false #TRUE somente quando for buildar pra android
 #erratic
 #zigZag
 #charger
+#shooter
 
 #Waves config
 var waves: Dictionary = {
 	1: {
 		"qty": 20,
-		"entity": "zigZag"
+		"entity": "sigZag"
 	},
 	2: {
 		"qty": 10,
@@ -30,8 +31,8 @@ var waves: Dictionary = {
 		"entity": "erratic"
 	},
 	4: {
-		"qty": 15,
-		"entity": "charger"
+		"qty": 5,
+		"entity": "shooter"
 	},
 	5: {
 		"qty": 2,
@@ -50,20 +51,20 @@ var waves: Dictionary = {
 		"entity": "charger"
 	},
 	9: {
-		"qty": 50,
-		"entity": "erratic"
+		"qty": 10,
+		"entity": "shooter"
 	},
 	10: {
 		"qty": 50,
 		"entity": "zigZag"
 	},
 	11: {
-		"qty": 60,
-		"entity": "zigZag"
+		"qty": 30,
+		"entity": "charger"
 	},
 	12: {
-		"qty": 1,
-		"entity": "pixelHole"
+		"qty": 15,
+		"entity": "shooter"
 	},
 	13: {
 		"qty": 1,
@@ -74,7 +75,7 @@ var waves: Dictionary = {
 		"entity": "star"
 	},
 	15: {
-		"qty": 30,
+		"qty": 35,
 		"entity": "charger"
 	},
 	16: {

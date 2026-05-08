@@ -8,7 +8,7 @@ func _ready() -> void:
 	mainScene = get_tree().current_scene
 
 func _process(delta: float) -> void:
-	position.y += GameState.speedY * delta
+	global_position.y += GameState.speedY * delta
 	if global_position.y > 750:
 		GameState.totalEnemies -= 1
 		if GameState.totalEnemies <= 0:
@@ -22,7 +22,9 @@ func onBodyEntered(body: Node2D) -> void:
 		takeHit()
 
 func onAreaEntered(area: Area2D) -> void:
-	if area.is_in_group("bullet"):
+	print("aconteci")
+	if area.is_in_group("playerBullet"):
+		print("aconteci 2")
 		takeHit()
 
 func takeHit():

@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var shield: Sprite2D = $shield
 @onready var hud: CanvasLayer = $"../../HUD"
 @onready var joystick: Node2D = $"../../HUD/joystick"
+var bulletScene: PackedScene = preload("res://scenes/playerBullet.tscn")
 
-var bulletScene: PackedScene = preload("res://scenes/bullet.tscn")
 var baseSpeed: float = 300.0
 var baseProjectiles: int = 1
 var baseShieldHits: int = 0
@@ -78,9 +78,9 @@ func shoot():
 
 	for i in currentProjectiles:
 		var offset = (i - (currentProjectiles - 1) / 2.0) * spread
-		var b = bulletScene.instantiate()
-		b.global_position = global_position + Vector2(offset, -20)
-		get_tree().current_scene.add_child(b)
+		var bullet = bulletScene.instantiate()
+		bullet.global_position = global_position + Vector2(offset, -20)
+		get_tree().current_scene.add_child(bullet)
 
 func takeHit():
 	if currentShieldHits > 0:

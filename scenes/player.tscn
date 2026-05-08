@@ -155,7 +155,7 @@ animations = [{
 [node name="player" type="Node2D" unique_id=1396747313]
 process_mode = 3
 
-[node name="shipBody" type="CharacterBody2D" parent="." unique_id=248429109]
+[node name="shipBody" type="CharacterBody2D" parent="." unique_id=248429109 groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="shipCollision" type="CollisionShape2D" parent="shipBody" unique_id=1090178142]

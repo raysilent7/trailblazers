@@ -1,6 +1,6 @@
 extends Node2D
 
-var radius := 100.0
+var radius := 80.0
 var touchId := -1
 var output := Vector2.ZERO
 

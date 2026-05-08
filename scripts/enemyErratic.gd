@@ -6,8 +6,8 @@ var dir := 0
 var timeToChange := 0.0
 
 func _ready() -> void:
+	super._ready()
 	pickNewDirection()
-	mainScene = get_tree().current_scene
 
 func pickNewDirection():
 	dir = randi_range(-1, 1)
