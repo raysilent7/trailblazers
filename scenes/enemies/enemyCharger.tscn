@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cpn0a1ro40woa"]
+
+[ext_resource type="Script" uid="uid://cbbdtfrjmcgiy" path="res://scripts/enemies/enemyCharger.gd" id="1_55jar"]
+[ext_resource type="Texture2D" uid="uid://pntmoe07qxgv" path="res://assets/images/charger.png" id="2_lgvk6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
+radius = 13.0
+height = 26.0
+
+[node name="Enemy" type="Node2D" unique_id=241384343 groups=["enemy"]]
+
+[node name="enemy" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
+script = ExtResource("1_55jar")
+
+[node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=685278957]
+texture = ExtResource("2_lgvk6")
+
+[node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=200466641]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7p1mj")
+
+[connection signal="area_entered" from="enemy" to="enemy" method="onAreaEntered"]
+[connection signal="body_entered" from="enemy" to="enemy" method="onBodyEntered"]

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://di3quqcxothpw"]
+
+[ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="1_hv0y7"]
+[ext_resource type="Script" uid="uid://ddgq0morqldye" path="res://scripts/menus/scoreList.gd" id="1_ln050"]
+[ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="2_pcwan"]
+[ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="2_tx8t6"]
+[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_34u3n"]
+[ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="4_gww4f"]
+[ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="5_hv0y7"]
+[ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="6_pcwan"]
+
+[node name="ScoreBoard" type="Control" unique_id=2087003603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGParallax" type="Node2D" parent="." unique_id=1211308537]
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=773430074]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("1_hv0y7")
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=1553704255]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pcwan")
+stretch_mode = 1
+
+[node name="board" type="CanvasLayer" parent="." unique_id=1479818779]
+script = ExtResource("1_ln050")
+
+[node name="scoreRoot" type="Control" parent="board" unique_id=321190527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="box" type="TextureRect" parent="board/scoreRoot" unique_id=2046872286]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -256.0
+offset_right = 128.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tx8t6")
+
+[node name="title" type="Label" parent="board/scoreRoot/box" unique_id=1476043593]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 40.0
+offset_right = 115.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_34u3n")
+theme_override_font_sizes/font_size = 28
+text = "SCORE BOARD"
+horizontal_alignment = 1
+
+[node name="scoreList" type="VBoxContainer" parent="board/scoreRoot/box" unique_id=632984269]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 90.0
+offset_right = 20.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="back" type="TextureButton" parent="board/scoreRoot" unique_id=1501779116]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 40.0
+offset_right = -60.0
+offset_bottom = 80.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_gww4f")
+texture_pressed = ExtResource("5_hv0y7")
+texture_hover = ExtResource("6_pcwan")
+
+[connection signal="mouse_entered" from="board/scoreRoot/back" to="board" method="onBackMouseEntered"]
+[connection signal="pressed" from="board/scoreRoot/back" to="board" method="onBackPressed"]

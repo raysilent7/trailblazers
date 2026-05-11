@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://dutpvlcgkdmw8"]
+
+[ext_resource type="Script" uid="uid://485ffxs6t81s" path="res://scripts/menus/optionsMenu.gd" id="1_kd4hv"]
+[ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="2_2sggb"]
+[ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="2_5t0ao"]
+[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_2sggb"]
+[ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_k3ncn"]
+[ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="4_k3ncn"]
+[ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="5_g3dqd"]
+[ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="6_64qlm"]
+
+[node name="OptionsMenu" type="Control" unique_id=1903043567]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kd4hv")
+
+[node name="BGParallax" type="Node2D" parent="." unique_id=1863663883]
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=796398675]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("2_2sggb")
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=355026711]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_k3ncn")
+stretch_mode = 1
+
+[node name="panel" type="TextureRect" parent="." unique_id=1648901756]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t0ao")
+
+[node name="title" type="Label" parent="panel" unique_id=1966924224]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 40.0
+offset_right = 77.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="general" type="Label" parent="panel" unique_id=1089043101]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -148.0
+offset_right = 74.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+text = "GENERAL VOLUME"
+
+[node name="FX" type="Label" parent="panel" unique_id=646424551]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -48.0
+offset_right = 104.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+text = "SOUND EFFECTS VOLUME"
+
+[node name="music" type="Label" parent="panel" unique_id=1529800555]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = 72.0
+offset_right = 63.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+text = "MUSIC VOLUME"
+
+[node name="generalVolume" type="HSlider" parent="panel" unique_id=227527869]
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -116.0
+offset_right = 100.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+
+[node name="soundFXVolume" type="HSlider" parent="panel" unique_id=221800542]
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -16.0
+offset_right = 100.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+
+[node name="musicVolume" type="HSlider" parent="panel" unique_id=1610235303]
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 104.0
+offset_right = 100.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+
+[node name="soundFXMute" type="CheckBox" parent="panel" unique_id=640054585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 18.0
+offset_right = 107.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+text = "MUTE SOUND EFFECTS"
+
+[node name="musicMute" type="CheckBox" parent="panel" unique_id=1930638075]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 138.0
+offset_right = 66.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_2sggb")
+text = "MUTE MUSIC"
+
+[node name="back" type="TextureButton" parent="." unique_id=1149626720]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 40.0
+offset_right = -60.0
+offset_bottom = 80.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_k3ncn")
+texture_pressed = ExtResource("5_g3dqd")
+texture_hover = ExtResource("6_64qlm")
+
+[connection signal="value_changed" from="panel/generalVolume" to="." method="onGeneralVolumeValueChanged"]
+[connection signal="value_changed" from="panel/soundFXVolume" to="." method="onSoundFxVolumeValueChanged"]
+[connection signal="value_changed" from="panel/musicVolume" to="." method="onMusicVolumeValueChanged"]
+[connection signal="toggled" from="panel/soundFXMute" to="." method="onSoundFxMuteToggled"]
+[connection signal="toggled" from="panel/musicMute" to="." method="onMusicMuteToggled"]
+[connection signal="mouse_entered" from="back" to="." method="onBackMouseEntered"]
+[connection signal="pressed" from="back" to="." method="onBackPressed"]
