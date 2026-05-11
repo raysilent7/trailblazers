@@ -15,24 +15,25 @@ var isApkMode: bool = false #TRUE somente quando for buildar pra android
 #zigZag
 #charger
 #shooter
+#chaser
 
 #Waves config
 var waves: Dictionary = {
 	1: {
 		"qty": 10,
-		"entity": "shooter"
+		"entity": "chaser"
 	},
 	2: {
 		"qty": 10,
-		"entity": "charger"
+		"entity": "shooter"
 	},
 	3: {
 		"qty": 25,
-		"entity": "erratic"
+		"entity": "zigZag"
 	},
 	4: {
 		"qty": 5,
-		"entity": "shooter"
+		"entity": "erratic"
 	},
 	5: {
 		"qty": 2,

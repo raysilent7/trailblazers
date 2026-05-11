@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://nw38yoli3j8p"]
+
+[ext_resource type="Script" uid="uid://be7tqep3ainjg" path="res://scripts/enemies/enemyChaser.gd" id="1_db71r"]
+[ext_resource type="Texture2D" uid="uid://bmuqa3hmimaeg" path="res://assets/images/chaser.png" id="2_db71r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_db71r"]
+radius = 12.0
+height = 34.0
+
+[node name="EnemyChaser" type="Node2D" unique_id=21206682 groups=["enemy"]]
+
+[node name="enemy" type="Area2D" parent="." unique_id=410917616 groups=["enemy"]]
+script = ExtResource("1_db71r")
+
+[node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=879443136]
+texture = ExtResource("2_db71r")
+
+[node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=66778221]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_db71r")
+
+[connection signal="area_entered" from="enemy" to="enemy" method="onAreaEntered"]
+[connection signal="body_entered" from="enemy" to="enemy" method="onBodyEntered"]

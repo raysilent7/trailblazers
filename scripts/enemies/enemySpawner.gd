@@ -3,13 +3,13 @@ extends Node
 @onready var preparationTimer: Timer = $"../preparationTimer"
 
 var spaceEntities: Dictionary = {
-	"nebula": preload("res://scenes/objects/nebula.tscn"),
 	"pixelHole": preload("res://scenes/objects/blackHole.tscn"),
 	"star": preload("res://scenes/objects/star.tscn"),
 	"erratic": preload("res://scenes/enemies/enemyErratic.tscn"),
 	"zigZag": preload("res://scenes/enemies/enemyZigZag.tscn"),
 	"charger": preload("res://scenes/enemies/enemyCharger.tscn"),
-	"shooter": preload("res://scenes/enemies/shooterEnemy.tscn")
+	"shooter": preload("res://scenes/enemies/enemyShooter.tscn"),
+	"chaser": preload("res://scenes/enemies/enemyChaser.tscn")
 }
 
 var waveCounter: int = 0
@@ -24,11 +24,11 @@ func onPreparationTimerTimeout() -> void:
 	if GameState.actualWave % 3 == 0:
 		get_tree().current_scene.createRandomUpgrade()
 	
-	GameState.totalWaves += 1
-	GameState.actualWave += 1
-	
 	if GameState.actualWave == 20:
 		GameState.actualWave = 1
+	
+	GameState.totalWaves += 1
+	GameState.actualWave += 1
 
 func summonEnemies() -> void:
 	for count in range(actualWave.get("qty")):
