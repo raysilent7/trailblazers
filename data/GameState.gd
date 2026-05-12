@@ -1,8 +1,5 @@
 extends Node
 
-var totalEnemies: int
-var totalWaves: int
-var actualWave: int = 1 #padrao 1
 var speedY: float = 50.0
 var isDebugMode: bool = false #padrao FALSE
 var isApkMode: bool = false #TRUE somente quando for buildar pra android

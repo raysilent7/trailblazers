@@ -38,7 +38,4 @@ func onScoreMouseEntered() -> void:
 	Audio.playButtonHover()
 
 func restartGameState():
-	GameState.actualWave = 1
-	GameState.totalEnemies = 0
-	GameState.totalWaves = 0
 	GameState.speedY = 50.0

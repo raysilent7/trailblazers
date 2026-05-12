@@ -29,8 +29,4 @@ func _process(delta: float) -> void:
 	position.y += GameState.speedY * delta
 
 	if global_position.y > 750:
-		GameState.totalEnemies -= 1
-		if GameState.totalEnemies <= 0:
-			GameState.totalEnemies = 0
-			mainScene.startPreparationTimer()
 		call_deferred("queue_free")

@@ -2,14 +2,13 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $player/shipBody
 @onready var cheats: Node2D = $cheats
-@onready var preparationTimer: Timer = $preparationTimer
 @onready var HUDLayer: CanvasLayer = $HUD
 @onready var joystick: Node2D = $HUD/joystick
 var upgradeScene: PackedScene = preload("res://scenes/objects/upgrade.tscn")
 var gameOverPopupScene: PackedScene = preload("res://scenes/menus/gameOverPopup.tscn")
 var pausePopupScene: PackedScene = preload("res://scenes/menus/pauseMenu.tscn")
 
-var distanceTravelled: int
+var distanceTravelled: int = 1
 
 func _ready() -> void:
 	Audio.startMusicSystem()
@@ -33,7 +32,7 @@ func onSpeedCheatPressed() -> void:
 
 func onDistanceTravelledTimeout() -> void:
 	distanceTravelled += 1
-	GameState.speedY = min(GameState.speedY, 400) + 0.5
+	GameState.speedY = min(GameState.speedY, 300) + 0.25
 	HUDLayer.updateDistance(distanceTravelled)
 
 func onInvinciblePressed() -> void:
@@ -46,9 +45,6 @@ func createRandomUpgrade() -> void:
 	var upgrade = upgradeScene.instantiate()
 	upgrade.global_position = Vector2(randi_range(50, 900), 0)
 	get_tree().current_scene.add_child(upgrade)
-
-func startPreparationTimer():
-	preparationTimer.start()
 
 func showGameOverPopup():
 	var popup = gameOverPopupScene.instantiate()

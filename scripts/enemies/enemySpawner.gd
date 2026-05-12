@@ -1,45 +1,62 @@
 extends Node
 
-@onready var preparationTimer: Timer = $"../preparationTimer"
+var waveConfig: WaveConfig
+var enemyFactory: EnemyFactory
+var waveTimer: Timer
+var waveInterval: float = 20.0
+var bossActive: bool = false
+var distanceTraveled: float = 0.0
+var maxTypes: int = 2
+var lastType: String
 
-var spaceEntities: Dictionary = {
-	"pixelHole": preload("res://scenes/objects/blackHole.tscn"),
-	"star": preload("res://scenes/objects/star.tscn"),
-	"erratic": preload("res://scenes/enemies/enemyErratic.tscn"),
-	"zigZag": preload("res://scenes/enemies/enemyZigZag.tscn"),
-	"charger": preload("res://scenes/enemies/enemyCharger.tscn"),
-	"shooter": preload("res://scenes/enemies/enemyShooter.tscn"),
-	"chaser": preload("res://scenes/enemies/enemyChaser.tscn")
-}
+func _ready():
+	waveConfig = WaveConfig.new()
+	enemyFactory = EnemyFactory.new()
+	add_child(enemyFactory)
+	waveTimer = Timer.new()
+	waveTimer.wait_time = waveInterval
+	waveTimer.timeout.connect(onWaveTimer)
+	add_child(waveTimer)
+	waveTimer.start()
+	spawnWave()
 
-var waveCounter: int = 0
-var actualWave: Dictionary
+func onWaveTimer():
+	distanceTraveled = get_tree().current_scene.distanceTravelled
+	if bossActive:
+		return
+	spawnWave()
 
-func onPreparationTimerTimeout() -> void:
-	print("timer iniciado: " + str(GameState.actualWave))
-	actualWave = GameState.waves.get(GameState.actualWave)
+func spawnWave():
+	var count: int = waveConfig.getEnemyCount(distanceTraveled)
+	var totalTypes: int = 0
 	
-	summonEnemies()
-	
-	if GameState.actualWave % 3 == 0:
-		get_tree().current_scene.createRandomUpgrade()
-	
-	if GameState.actualWave == 20:
-		GameState.actualWave = 1
-	
-	GameState.totalWaves += 1
-	GameState.actualWave += 1
+	for i in count:
+		var enemyType: String = waveConfig.getRandomEnemyType()
+		var enemy: Node2D
+		
+		if not lastType:
+			print("lastType: " + lastType)
+			lastType = enemyType
+			totalTypes += 1
+		if enemyType != lastType:
+			totalTypes += 1
+		
+		var pos: Vector2 = getRandomSpawnPosition()
+		
+		if totalTypes == maxTypes:
+			enemy = enemyFactory.spawnEnemy(lastType, pos)
+		else:
+			enemy = enemyFactory.spawnEnemy(enemyType, pos)
 
-func summonEnemies() -> void:
-	for count in range(actualWave.get("qty")):
-		GameState.totalEnemies += 1
-		var entityScene = spaceEntities.get(actualWave.get("entity"))
-		var entity = entityScene.instantiate()
-		resolveSpawnPosition(entity)
-		get_tree().current_scene.get_node("enemySpawner").add_child(entity)
+		add_child(enemy)
 
-func resolveSpawnPosition(entity):
-	if entity.is_in_group("enemy"):
-		entity.global_position = Vector2(randi_range(20, 900), randi_range(-40, -400))
-	else:
-		entity.global_position = Vector2(randi_range(20, 900), -180)
+func getRandomSpawnPosition() -> Vector2:
+	var x: float = randi_range(20, 900)
+	var y: float = randi_range(-40, -400)
+	return Vector2(x, y)
+
+func startBoss():
+	bossActive = true
+
+func endBoss():
+	bossActive = false
