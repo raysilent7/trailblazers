@@ -6,6 +6,8 @@ var output := Vector2.ZERO
 
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed and touchId == -1:
+		if not isInsideJoystick(event.position):
+			return
 		touchId = event.index
 		updateStick(event.position)
 
@@ -30,3 +32,8 @@ func updateStick(screenPos):
 
 func resetStick():
 	$stick.position = $base.position
+
+func isInsideJoystick(screenPos: Vector2) -> bool:
+	var localPos: Vector2 = to_local(screenPos)
+	var center: Vector2 = $base.position
+	return localPos.distance_to(center) <= radius

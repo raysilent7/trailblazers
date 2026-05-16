@@ -12,7 +12,7 @@ var chosenUpgrade: String
 var speed: float = 50.0
 
 func _ready() -> void:
-	chosenUpgrade = textureNames[randi() % textureNames.size()]
+	chosenUpgrade = textureNames.pick_random()
 	sprite.texture = textures.get(chosenUpgrade)
 
 func _process(delta: float) -> void:

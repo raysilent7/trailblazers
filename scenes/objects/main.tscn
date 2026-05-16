@@ -82,6 +82,13 @@ offset_bottom = 296.0
 text = "sound
 "
 
+[node name="summon star" type="Button" parent="cheats" unique_id=1565346472]
+offset_left = 17.0
+offset_top = 292.0
+offset_right = 56.0
+offset_bottom = 323.0
+text = "star"
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=219636573]
 layer = 10
 script = ExtResource("4_jyhfs")
@@ -268,3 +275,4 @@ texture = ExtResource("13_a8y0u")
 [connection signal="pressed" from="cheats/armorCheat" to="." method="onArmorCheatPressed"]
 [connection signal="pressed" from="cheats/invincible" to="." method="onInvinciblePressed"]
 [connection signal="pressed" from="cheats/sound" to="." method="onSoundPressed"]
+[connection signal="pressed" from="cheats/summon star" to="." method="onSummonStarPressed"]

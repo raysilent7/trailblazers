@@ -30,3 +30,6 @@ func _process(delta: float) -> void:
 
 	if global_position.y > 750:
 		call_deferred("queue_free")
+
+func choseVariant(variant: String) -> void:
+	$enemySpr.play(variant)

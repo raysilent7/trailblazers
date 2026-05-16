@@ -39,3 +39,4 @@ func onScoreMouseEntered() -> void:
 
 func restartGameState():
 	GameState.speedY = 50.0
+	GameState.distanceTraveled = 1

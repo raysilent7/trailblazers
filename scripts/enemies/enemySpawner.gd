@@ -1,13 +1,15 @@
 extends Node
 
+var upgradeScene: PackedScene = preload("res://scenes/objects/upgrade.tscn")
+
 var waveConfig: WaveConfig
 var enemyFactory: EnemyFactory
 var waveTimer: Timer
-var waveInterval: float = 20.0
+var waveInterval: float = 18.0
 var bossActive: bool = false
-var distanceTraveled: float = 0.0
 var maxTypes: int = 2
-var lastType: String
+var totalWaves: int = 0
+var types: Array
 
 func _ready():
 	waveConfig = WaveConfig.new()
@@ -21,33 +23,29 @@ func _ready():
 	spawnWave()
 
 func onWaveTimer():
-	distanceTraveled = get_tree().current_scene.distanceTravelled
 	if bossActive:
 		return
+	types.clear()
 	spawnWave()
 
 func spawnWave():
-	var count: int = waveConfig.getEnemyCount(distanceTraveled)
-	var totalTypes: int = 0
+	totalWaves += 1
+	var count: int = waveConfig.getEnemyCount(GameState.distanceTraveled)
+	
+	if totalWaves % 3 == 0:
+		createRandomUpgrade()
+	
+	if totalWaves % 5 == 0:
+		add_child(enemyFactory.spawnEnemy(waveConfig.getRandomObject(), getRandomSpawnPosition()))
 	
 	for i in count:
-		var enemyType: String = waveConfig.getRandomEnemyType()
-		var enemy: Node2D
-		
-		if not lastType:
-			print("lastType: " + lastType)
-			lastType = enemyType
-			totalTypes += 1
-		if enemyType != lastType:
-			totalTypes += 1
-		
+		if types.size() < maxTypes:
+			types.append(waveConfig.getRandomEnemyType())
+		var chosenType:String = types.pick_random()
 		var pos: Vector2 = getRandomSpawnPosition()
-		
-		if totalTypes == maxTypes:
-			enemy = enemyFactory.spawnEnemy(lastType, pos)
-		else:
-			enemy = enemyFactory.spawnEnemy(enemyType, pos)
-
+		var variant: String = waveConfig.getRandomVariant()
+		var enemy: Node2D = enemyFactory.spawnEnemy(chosenType, pos)
+		enemy.get_child(0).choseVariant(variant)
 		add_child(enemy)
 
 func getRandomSpawnPosition() -> Vector2:
@@ -60,3 +58,11 @@ func startBoss():
 
 func endBoss():
 	bossActive = false
+
+func createRandomUpgrade() -> void:
+	var upgrade = upgradeScene.instantiate()
+	upgrade.global_position = Vector2(randi_range(50, 900), 0)
+	get_tree().current_scene.add_child(upgrade)
+
+func summonStar() -> void:
+	add_child(enemyFactory.spawnEnemy("star", getRandomSpawnPosition()))

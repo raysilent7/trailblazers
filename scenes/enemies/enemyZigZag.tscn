@@ -2,6 +2,34 @@
 
 [ext_resource type="Script" uid="uid://b3kf0twvgnxlb" path="res://scripts/enemies/enemyZigZag.gd" id="1_7pqxt"]
 [ext_resource type="Texture2D" uid="uid://yaqr20hf08gw" path="res://assets/images/zigZag.png" id="2_7pqxt"]
+[ext_resource type="Texture2D" uid="uid://d3i22yhp0ruso" path="res://assets/images/zigzag stalker.png" id="3_6ggna"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnm63"]
+atlas = ExtResource("2_7pqxt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5sdi"]
+atlas = ExtResource("3_6ggna")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opqud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnm63")
+}],
+"loop": true,
+"name": &"basic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5sdi")
+}],
+"loop": true,
+"name": &"stalker",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
 height = 20.0
@@ -11,8 +39,9 @@ height = 20.0
 [node name="enemy" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
 script = ExtResource("1_7pqxt")
 
-[node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=685278957]
-texture = ExtResource("2_7pqxt")
+[node name="enemySpr" type="AnimatedSprite2D" parent="enemy" unique_id=1550010247]
+sprite_frames = SubResource("SpriteFrames_opqud")
+animation = &"stalker"
 
 [node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=200466641]
 position = Vector2(3, -4)

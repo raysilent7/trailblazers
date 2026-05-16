@@ -10,10 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.y += speed * delta
 	if global_position.y > 880:
-		GameState.totalEnemies -= 1
-		if GameState.totalEnemies <= 0:
-			GameState.totalEnemies = 0
-			mainScene.startPreparationTimer()
 		print("pixel hole morreu")
 		call_deferred("queue_free")
 

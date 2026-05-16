@@ -27,3 +27,6 @@ func startWait():
 	if player:
 		direction = (player.global_position - global_position).normalized()
 	state = "charging"
+
+func choseVariant(variant: String) -> void:
+	$enemySpr.play(variant)

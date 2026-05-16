@@ -4,11 +4,8 @@ extends Node2D
 @onready var cheats: Node2D = $cheats
 @onready var HUDLayer: CanvasLayer = $HUD
 @onready var joystick: Node2D = $HUD/joystick
-var upgradeScene: PackedScene = preload("res://scenes/objects/upgrade.tscn")
 var gameOverPopupScene: PackedScene = preload("res://scenes/menus/gameOverPopup.tscn")
 var pausePopupScene: PackedScene = preload("res://scenes/menus/pauseMenu.tscn")
-
-var distanceTravelled: int = 1
 
 func _ready() -> void:
 	Audio.startMusicSystem()
@@ -31,9 +28,9 @@ func onSpeedCheatPressed() -> void:
 	player.applyUpgrade("speed")
 
 func onDistanceTravelledTimeout() -> void:
-	distanceTravelled += 1
-	GameState.speedY = min(GameState.speedY, 300) + 0.25
-	HUDLayer.updateDistance(distanceTravelled)
+	GameState.distanceTraveled += 1
+	GameState.speedY = min(GameState.speedY, 350) + 0.25
+	HUDLayer.updateDistance(GameState.distanceTraveled)
 
 func onInvinciblePressed() -> void:
 	player.destroyed = not player.destroyed
@@ -41,12 +38,10 @@ func onInvinciblePressed() -> void:
 func onSoundPressed() -> void:
 	Audio.stopMusicSystem()
 
-func createRandomUpgrade() -> void:
-	var upgrade = upgradeScene.instantiate()
-	upgrade.global_position = Vector2(randi_range(50, 900), 0)
-	get_tree().current_scene.add_child(upgrade)
-
 func showGameOverPopup():
 	var popup = gameOverPopupScene.instantiate()
 	HUDLayer.add_child(popup)
-	popup.showPopup(distanceTravelled)
+	popup.showPopup(GameState.distanceTraveled)
+
+func onSummonStarPressed() -> void:
+	$enemySpawner.summonStar()

@@ -12,9 +12,8 @@ var spaceEntities: Dictionary = {
 }
 
 func spawnEnemy(enemyType: String, position: Vector2) -> Node2D:
-	print(enemyType)
+	print("inimigo escolhido: " + enemyType)
 	var scene = spaceEntities.get(enemyType)
-	print("cena: " + str(scene))
 	var enemy = scene.instantiate()
 	enemy.global_position = position
 	return enemy

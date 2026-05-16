@@ -20,6 +20,7 @@ var shieldLevel: int = 0
 var currentSpeed: float = baseSpeed
 var currentProjectiles: int = baseProjectiles
 var currentShieldHits: int = baseShieldHits
+var heatDamage: float
 
 func _physics_process(_delta: float) -> void:
 	if not destroyed:

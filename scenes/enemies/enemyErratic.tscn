@@ -2,6 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bn2qeu42rw0hm" path="res://scripts/enemies/enemyErratic.gd" id="1_3lj16"]
 [ext_resource type="Texture2D" uid="uid://da1ptfuj8s258" path="res://assets/images/erratic.png" id="2_3lj16"]
+[ext_resource type="Texture2D" uid="uid://oxxafbuyqvea" path="res://assets/images/erratic stalker.png" id="3_ovrig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ck0a"]
+atlas = ExtResource("2_3lj16")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvj1g"]
+atlas = ExtResource("3_ovrig")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pytkj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ck0a")
+}],
+"loop": true,
+"name": &"basic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvj1g")
+}],
+"loop": true,
+"name": &"stalker",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
 radius = 12.0
@@ -12,8 +40,9 @@ height = 26.0
 [node name="enemy" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
 script = ExtResource("1_3lj16")
 
-[node name="enemySpr" type="Sprite2D" parent="enemy" unique_id=685278957]
-texture = ExtResource("2_3lj16")
+[node name="enemySpr" type="AnimatedSprite2D" parent="enemy" unique_id=364905246]
+sprite_frames = SubResource("SpriteFrames_pytkj")
+animation = &"stalker"
 
 [node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=200466641]
 position = Vector2(0, 2)

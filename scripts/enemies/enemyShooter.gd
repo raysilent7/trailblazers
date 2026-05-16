@@ -35,3 +35,6 @@ func shoot():
 	var bullet = bulletScene.instantiate()
 	bullet.global_position = global_position
 	get_tree().current_scene.add_child(bullet)
+
+func choseVariant(variant: String) -> void:
+	$enemySpr.play(variant)
