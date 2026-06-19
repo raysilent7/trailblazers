@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://3lg3gejgo7wl" path="res://assets/audio/press.wav" id="8_s14o2"]
 [ext_resource type="AudioStream" uid="uid://bx6cywug4bjx" path="res://assets/audio/Lines of Code.mp3" id="10_rmmm8"]
 [ext_resource type="AudioStream" uid="uid://cibxxtceesn3f" path="res://assets/audio/Dark Intro.ogg" id="11_mk1kq"]
+[ext_resource type="AudioStream" uid="uid://cbxwpoqhoopix" path="res://assets/audio/birds.ogg" id="12_4q4pl"]
 [ext_resource type="AudioStream" uid="uid://c7nad75sgw4gk" path="res://assets/audio/Space Graveyard.mp3" id="12_hh26a"]
 
 [node name="AudioManager" type="Node2D" unique_id=612155702]
@@ -51,3 +52,6 @@ stream = ExtResource("11_mk1kq")
 
 [node name="music3" type="AudioStreamPlayer2D" parent="." unique_id=594552434 groups=["music"]]
 stream = ExtResource("12_hh26a")
+
+[node name="birds" type="AudioStreamPlayer2D" parent="." unique_id=1778765693]
+stream = ExtResource("12_4q4pl")

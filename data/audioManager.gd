@@ -1,5 +1,19 @@
 extends Node
 
+@onready var shoot: AudioStreamPlayer2D = $shoot
+@onready var player_hit: AudioStreamPlayer2D = $playerHit
+@onready var explosion: AudioStreamPlayer2D = $explosion
+@onready var shield_hit: AudioStreamPlayer2D = $shieldHit
+@onready var upgrade: AudioStreamPlayer2D = $upgrade
+@onready var enemy_hit: AudioStreamPlayer2D = $enemyHit
+@onready var button_hover: AudioStreamPlayer2D = $buttonHover
+@onready var button_pressed: AudioStreamPlayer2D = $buttonPressed
+@onready var birds: AudioStreamPlayer2D = $birds
+@onready var music_1: AudioStreamPlayer2D = $music1
+@onready var music_2: AudioStreamPlayer2D = $music2
+@onready var music_3: AudioStreamPlayer2D = $music3
+
+
 var silenceMin: int = 20
 var silenceMax: int = 30
 var lastTrack = null
@@ -11,9 +25,9 @@ var muteMusic: bool = false
 var muteFX: bool = false
 
 func _ready() -> void:
-	$music1.finished.connect(onTrackFinished)
-	$music2.finished.connect(onTrackFinished)
-	$music3.finished.connect(onTrackFinished)
+	music_1.finished.connect(onTrackFinished)
+	music_2.finished.connect(onTrackFinished)
+	music_3.finished.connect(onTrackFinished)
 	loadSettings()
 
 func setGeneralVolume(value: float):
@@ -53,37 +67,34 @@ func updateVolumes():
 	saveSettings()
 
 func playShoot():
-	$shoot.play()
+	shoot.play()
 
 func playPlayerHit():
-	$playerHit.play()
+	player_hit.play()
 
 func playShieldHit():
-	$shieldHit.play()
+	shield_hit.play()
 
 func playUpgrade():
-	$upgrade.play()
+	upgrade.play()
 
 func playEnemyHit():
-	$enemyHit.play()
+	enemy_hit.play()
 
 func playButtonHover():
-	$buttonHover.play()
+	button_hover.play()
 
 func playButtonPress():
-	$buttonPressed.play()
+	button_pressed.play()
 
 func playExplosion():
-	$explosion.play()
+	explosion.play()
 
-func playMusic1():
-	$music1.play()
+func playBirds():
+	birds.play()
 
-func playMusic2():
-	$music2.play()
-
-func playMusic3():
-	$music3.play()
+func stopBirds():
+	birds.stop()
 
 func startMusicSystem():
 	if not playing:
@@ -95,7 +106,7 @@ func stopMusicSystem():
 	lastTrack.stop()
 
 func playRandomTrack():
-	var tracks = [$music1, $music2, $music3]
+	var tracks = [music_1, music_2, music_3]
 	var available = tracks.duplicate()
 	if lastTrack != null:
 		available.erase(lastTrack)

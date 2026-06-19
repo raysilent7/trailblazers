@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Universe: the trailblaze"
-run/main_scene="uid://crh7ywlcfrnyd"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="uid://cah6t5ntme3b2"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://c7y1bpbd5om3k"
 
 [autoload]
 
