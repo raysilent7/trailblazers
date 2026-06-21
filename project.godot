@@ -20,11 +20,13 @@ boot_splash/image="uid://c7y1bpbd5om3k"
 GameState="*uid://cdy7ut1lupn5i"
 Audio="*uid://pp3eo07it1pk"
 PlayerData="*uid://f5goi1271iaw"
+SceneLoader="*uid://rxgd1h5w0j62"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=720
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
