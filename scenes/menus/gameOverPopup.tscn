@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_5e3rf"]
 [ext_resource type="Script" uid="uid://bwws7hm3ift0y" path="res://scripts/menus/gameOverPopup.gd" id="1_djrab"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_1vxtv"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="3_0ayx6"]
 
 [node name="GameOverPopup" type="Control" unique_id=776373754]
 process_mode = 3
@@ -43,7 +43,7 @@ offset_right = 116.0
 offset_bottom = 132.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_1vxtv")
+theme_override_fonts/font = ExtResource("3_0ayx6")
 autowrap_mode = 3
 
 [node name="distance" type="Label" parent="popupBox" unique_id=318442501]
@@ -60,7 +60,7 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_1vxtv")
+theme_override_fonts/font = ExtResource("3_0ayx6")
 
 [node name="OK" type="Button" parent="popupBox" unique_id=1489481982]
 layout_mode = 1
@@ -76,7 +76,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_1vxtv")
+theme_override_fonts/font = ExtResource("3_0ayx6")
 theme_override_font_sizes/font_size = 32
 text = "OK"
 

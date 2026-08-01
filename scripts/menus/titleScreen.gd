@@ -1,5 +1,7 @@
-extends Node
+extends Control
 
+@export var mainScene: StringName = &""
+@export var loadingScreen: PackedScene
 @onready var start: Button = $buttons/start
 @onready var credits: Button = $buttons/credits
 @onready var options: Button = $buttons/options
@@ -25,7 +27,7 @@ func onOptionsMouseEntered() -> void:
 
 func onStartPressed() -> void:
 	Audio.playButtonPress()
-	get_tree().change_scene_to_file("res://scenes/objects/main.tscn")
+	SceneLoader.loadScene(mainScene, loadingScreen)
 
 func onStartMouseEntered() -> void:
 	Audio.playButtonHover()

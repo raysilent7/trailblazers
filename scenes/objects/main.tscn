@@ -4,11 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://d13kpb31w2af6" path="res://scenes/objects/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cfjjv43ob43ix" path="res://scripts/menus/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://401c044bmo58" path="res://scripts/menus/HUD.gd" id="4_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://byuonuqs2lrld" path="res://assets/images/dot.png" id="5_tbgi4"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="5_tefeu"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="7_b3y2n"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="8_tipki"]
 [ext_resource type="Script" uid="uid://b6eqsq5w2x3ra" path="res://scripts/menus/mobileJoystick.gd" id="9_0ld40"]
+[ext_resource type="Texture2D" uid="uid://cyh70xuchhhp5" path="res://assets/images/bar filler line P.png" id="9_k5wrm"]
+[ext_resource type="Texture2D" uid="uid://cd1veckh7vee5" path="res://assets/images/icon ship P.png" id="9_qd8o6"]
+[ext_resource type="Texture2D" uid="uid://b0q4cugn0e0s0" path="res://assets/images/icon shield P.png" id="10_b3y2n"]
+[ext_resource type="Texture2D" uid="uid://d22lywol4gpfw" path="res://assets/images/icon speed P.png" id="11_5llct"]
+[ext_resource type="Texture2D" uid="uid://bgq1eoja7qsf4" path="res://assets/images/icon projectile P.png" id="12_jra77"]
 [ext_resource type="Texture2D" uid="uid://jsgqvsnwu04l" path="res://assets/images/joystick base.png" id="12_trceg"]
 [ext_resource type="Texture2D" uid="uid://bluknkoaeogfp" path="res://assets/images/directional.png" id="13_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://djfhjujtgvub3" path="res://assets/images/shoot button.png" id="13_jbj1t"]
@@ -41,7 +45,7 @@ autostart = true
 script = ExtResource("1_0wfyh")
 
 [node name="player" parent="." unique_id=1396747313 instance=ExtResource("1_o5qli")]
-position = Vector2(491, 666)
+position = Vector2(488, 760)
 
 [node name="cheats" type="Node2D" parent="." unique_id=1066532222]
 visible = false
@@ -94,161 +98,146 @@ layer = 10
 script = ExtResource("4_jyhfs")
 
 [node name="distanceBox" type="HBoxContainer" parent="HUD" unique_id=289097790]
-offset_left = 34.0
-offset_top = 65.0
-offset_right = 245.0
-offset_bottom = 105.0
-metadata/_edit_lock_ = true
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 40.0
 
 [node name="title" type="Label" parent="HUD/distanceBox" unique_id=1054522039]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
-text = "DISTANCE FROM EARTH: "
+theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("7_b3y2n")
+text = "DISTANCE: "
 
 [node name="distance" type="Label" parent="HUD/distanceBox" unique_id=10240082]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
+theme_override_fonts/font = ExtResource("7_b3y2n")
 
 [node name="hitsBox" type="HBoxContainer" parent="HUD" unique_id=1254850411]
-offset_left = 34.0
-offset_top = 20.0
-offset_right = 276.0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 50.0
 offset_bottom = 60.0
-metadata/_edit_lock_ = true
+theme_override_constants/separation = 8
 
-[node name="hits" type="Label" parent="HUD/hitsBox" unique_id=341190701]
+[node name="icon" type="TextureRect" parent="HUD/hitsBox" unique_id=129769633]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
-text = "DAMAGE"
+texture = ExtResource("9_qd8o6")
+stretch_mode = 3
 
 [node name="hit1" type="TextureRect" parent="HUD/hitsBox" unique_id=1870786340]
-visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="hit2" type="TextureRect" parent="HUD/hitsBox" unique_id=2034499171]
-visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="hit3" type="TextureRect" parent="HUD/hitsBox" unique_id=357054118]
-visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="hit4" type="TextureRect" parent="HUD/hitsBox" unique_id=1492195477]
-visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
+stretch_mode = 3
+
+[node name="hit5" type="TextureRect" parent="HUD/hitsBox" unique_id=1547098642]
+layout_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="shieldBox" type="HBoxContainer" parent="HUD" unique_id=770429129]
-offset_left = 280.0
-offset_top = 20.0
-offset_right = 478.0
-offset_bottom = 60.0
-grow_horizontal = 2
-metadata/_edit_lock_ = true
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 80.0
+theme_override_constants/separation = 8
 
-[node name="shield" type="Label" parent="HUD/shieldBox" unique_id=1931409356]
+[node name="icon" type="TextureRect" parent="HUD/shieldBox" unique_id=1395826595]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
-text = "SHIELD"
+texture = ExtResource("10_b3y2n")
+stretch_mode = 3
 
 [node name="shield1" type="TextureRect" parent="HUD/shieldBox" unique_id=788909365]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="shield2" type="TextureRect" parent="HUD/shieldBox" unique_id=1194370353]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="shield3" type="TextureRect" parent="HUD/shieldBox" unique_id=2136560613]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="speedBox" type="HBoxContainer" parent="HUD" unique_id=2080196283]
-offset_left = 480.0
-offset_top = 20.0
-offset_right = 667.0
-offset_bottom = 60.0
-grow_horizontal = 2
-metadata/_edit_lock_ = true
+offset_left = 12.0
+offset_top = 80.0
+offset_right = 52.0
+offset_bottom = 100.0
+theme_override_constants/separation = 8
 
-[node name="speed" type="Label" parent="HUD/speedBox" unique_id=57583543]
+[node name="icon" type="TextureRect" parent="HUD/speedBox" unique_id=248108177]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
-text = "SPEED"
+texture = ExtResource("11_5llct")
+stretch_mode = 3
 
 [node name="speed1" type="TextureRect" parent="HUD/speedBox" unique_id=397816449]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="speed2" type="TextureRect" parent="HUD/speedBox" unique_id=1673341028]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="speed3" type="TextureRect" parent="HUD/speedBox" unique_id=481256890]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="projectileBox" type="HBoxContainer" parent="HUD" unique_id=1426432802]
-offset_left = 670.0
-offset_top = 20.0
-offset_right = 923.0
-offset_bottom = 60.0
-grow_horizontal = 2
-metadata/_edit_lock_ = true
+offset_left = 12.0
+offset_top = 100.0
+offset_right = 52.0
+offset_bottom = 120.0
+theme_override_constants/separation = 8
 
-[node name="projectiles" type="Label" parent="HUD/projectileBox" unique_id=916056734]
+[node name="icon" type="TextureRect" parent="HUD/projectileBox" unique_id=2138800076]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_tefeu")
-text = "PROJECTILES"
+texture = ExtResource("12_jra77")
+stretch_mode = 3
 
 [node name="proj1" type="TextureRect" parent="HUD/projectileBox" unique_id=964074145]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="proj2" type="TextureRect" parent="HUD/projectileBox" unique_id=1289087642]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="proj3" type="TextureRect" parent="HUD/projectileBox" unique_id=386619397]
 visible = false
 layout_mode = 2
-texture = ExtResource("5_tbgi4")
-expand_mode = 2
+texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="shoot" type="TouchScreenButton" parent="HUD" unique_id=698440081]

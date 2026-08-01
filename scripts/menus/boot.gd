@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func changeScene() -> void:
 	Audio.stopBirds()
-	SceneLoader.loadScene(initialScene)
+	SceneLoader.loadScene(initialScene, null)

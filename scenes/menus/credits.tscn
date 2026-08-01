@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_0bpdh"]
 [ext_resource type="Script" uid="uid://d1llnmv3w0eqd" path="res://scripts/menus/credits.gd" id="1_mah5v"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="2_2ckv8"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="2_ooihk"]
 [ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="3_8gwij"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_ih6pn"]
 [ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="4_mah5v"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="5_h70dw"]
 [ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="5_kyhnv"]
 
 [node name="Control" type="Control" unique_id=261484842]
@@ -46,24 +46,28 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_0bpdh")
 
-[node name="vbox" type="VBoxContainer" parent="panel" unique_id=231654511]
-custom_minimum_size = Vector2(450, 450)
+[node name="scroll" type="ScrollContainer" parent="panel" unique_id=1954212942]
+custom_minimum_size = Vector2(478, 450)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -6.0
-offset_right = 0.5
-offset_bottom = 6.0
+offset_left = -225.0
+offset_top = -200.0
+offset_right = 225.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="credits" type="Label" parent="panel/vbox" unique_id=854014472]
+[node name="vbox" type="VBoxContainer" parent="panel/scroll" unique_id=231654511]
+custom_minimum_size = Vector2(450, 400)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2ckv8")
+
+[node name="credits" type="Label" parent="panel/scroll/vbox" unique_id=854014472]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_h70dw")
 text = "Universe: The Trailblazer
 Developed by: Rayan \"Shile\" Garcia
 

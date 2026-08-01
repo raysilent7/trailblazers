@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@export var animation: AnimationPlayer
+@onready var animation: AnimationPlayer = $animation
+@onready var panel: Panel = $panel
 
 signal loadingScreenReady
 
@@ -15,4 +16,3 @@ func onLoadFinished() -> void:
 	animation.play_backwards("transition")
 	await animation.animation_finished
 	queue_free()
-	

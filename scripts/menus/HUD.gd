@@ -3,7 +3,7 @@ extends CanvasLayer
 func updateHits(hits):
 	var child = $hitsBox.get_children().get(hits)
 	if child is TextureRect:
-		child.visible = true
+		child.visible = false
 
 func updateSpeed(level):
 	var child = $speedBox.get_children().get(level)

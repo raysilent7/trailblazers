@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bok68iiwosq7t"
-path="res://.godot/imported/credits hover.png-60e10747baba22d613bac38681190c20.ctex"
+uid="uid://b0q4cugn0e0s0"
+path="res://.godot/imported/icon shield P.png-2d634d9e1a5cb6c557c215543e11060e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/credits hover.png"
-dest_files=["res://.godot/imported/credits hover.png-60e10747baba22d613bac38681190c20.ctex"]
+source_file="res://assets/images/icon shield P.png"
+dest_files=["res://.godot/imported/icon shield P.png-2d634d9e1a5cb6c557c215543e11060e.ctex"]
 
 [params]
 

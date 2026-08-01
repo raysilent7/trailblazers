@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dggq3jgo4ehwp"
-path="res://.godot/imported/OK button.png-551dade2cb87c8144ba024d274c20b98.ctex"
+uid="uid://cyh70xuchhhp5"
+path="res://.godot/imported/bar filler line P.png-5c8f3bdd5621f87613ad59cb881f481a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/OK button.png"
-dest_files=["res://.godot/imported/OK button.png-551dade2cb87c8144ba024d274c20b98.ctex"]
+source_file="res://assets/images/bar filler line P.png"
+dest_files=["res://.godot/imported/bar filler line P.png-5c8f3bdd5621f87613ad59cb881f481a.ctex"]
 
 [params]
 

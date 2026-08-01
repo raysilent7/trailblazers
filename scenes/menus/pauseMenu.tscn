@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da257psvxyj0w" path="res://scripts/menus/pauseMenu.gd" id="1_bcaeg"]
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="1_r5qvj"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="2_bcaeg"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="3_dqprv"]
 
 [node name="PauseMenu" type="Control" unique_id=412465161]
 process_mode = 3
@@ -40,7 +40,7 @@ offset_right = 172.5
 offset_bottom = 66.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 theme_override_font_sizes/font_size = 48
 text = "GAME PAUSED"
 
@@ -55,7 +55,7 @@ offset_right = 224.0
 offset_bottom = -20.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 theme_override_font_sizes/font_size = 32
 text = "CONTINUE"
 
@@ -73,7 +73,7 @@ offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"
 
@@ -91,7 +91,7 @@ offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 text = "GENERAL VOLUME"
 
 [node name="FX" type="Label" parent="menuBox" unique_id=679929814]
@@ -108,7 +108,7 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 text = "SOUND EFFECTS VOLUME"
 
 [node name="music" type="Label" parent="menuBox" unique_id=1192114327]
@@ -125,7 +125,7 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 text = "MUSIC VOLUME"
 
 [node name="generalVolume" type="HSlider" parent="menuBox" unique_id=11575379]
@@ -193,7 +193,7 @@ offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 text = "MUTE SOUND EFFECTS"
 
 [node name="musicMute" type="CheckBox" parent="menuBox" unique_id=1489445260]
@@ -210,7 +210,7 @@ offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("2_bcaeg")
+theme_override_fonts/font = ExtResource("3_dqprv")
 text = "MUTE MUSIC"
 
 [connection signal="mouse_entered" from="menuBox/continue" to="." method="onContinueMouseEntered"]

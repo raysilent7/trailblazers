@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://u86q7tse5god" path="res://scripts/menus/titleScreen.gd" id="1_sf4ia"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="2_bt0g6"]
+[ext_resource type="PackedScene" uid="uid://bktm1ed8tm0fo" path="res://scenes/menus/sceneTransition.tscn" id="2_f4dmw"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_f4dmw"]
 [ext_resource type="Texture2D" uid="uid://duidfjkbtne3q" path="res://assets/images/banner.png" id="4_7yii3"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="5_rdq0w"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="5_sf4ia"]
 
 [node name="titleScreen" type="Control" unique_id=2133505788]
 custom_minimum_size = Vector2(960, 720)
@@ -15,6 +16,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sf4ia")
+mainScene = &"uid://dp58tpma4d4kq"
+loadingScreen = ExtResource("2_f4dmw")
 metadata/_edit_lock_ = true
 
 [node name="BGParallax" type="Node2D" parent="." unique_id=936981197]
@@ -65,28 +68,28 @@ alignment = 1
 [node name="start" type="Button" parent="buttons" unique_id=641089109]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("5_rdq0w")
+theme_override_fonts/font = ExtResource("5_sf4ia")
 theme_override_font_sizes/font_size = 48
 text = "START"
 
 [node name="options" type="Button" parent="buttons" unique_id=263760550]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("5_rdq0w")
+theme_override_fonts/font = ExtResource("5_sf4ia")
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS"
 
 [node name="credits" type="Button" parent="buttons" unique_id=1086397307]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("5_rdq0w")
+theme_override_fonts/font = ExtResource("5_sf4ia")
 theme_override_font_sizes/font_size = 48
 text = "CREDITS"
 
 [node name="score" type="Button" parent="buttons" unique_id=1337818999]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("5_rdq0w")
+theme_override_fonts/font = ExtResource("5_sf4ia")
 theme_override_font_sizes/font_size = 48
 text = "SCORE"
 

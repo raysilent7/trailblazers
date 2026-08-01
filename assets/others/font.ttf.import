@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c8a3j0tp3iysd"
-path="res://.godot/imported/trailblaze.ttf-e4798df329771cd0a3a5fe9eb964fc1d.fontdata"
+uid="uid://bplwfx2xeajdp"
+path="res://.godot/imported/font.ttf-7935b0342f4f7bec2f49c225b9bdc9ac.fontdata"
 
 [deps]
 
-source_file="res://assets/others/trailblaze.ttf"
-dest_files=["res://.godot/imported/trailblaze.ttf-e4798df329771cd0a3a5fe9eb964fc1d.fontdata"]
+source_file="res://assets/others/font.ttf"
+dest_files=["res://.godot/imported/font.ttf-7935b0342f4f7bec2f49c225b9bdc9ac.fontdata"]
 
 [params]
 
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

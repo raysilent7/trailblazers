@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d36gbd0rdhm4r"
-path="res://.godot/imported/OK hover.png-0183212ca714c4896446ed20dbaf32a3.ctex"
+uid="uid://d22lywol4gpfw"
+path="res://.godot/imported/icon speed P.png-69c407e400518cfad4dec861c4eca5d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/OK hover.png"
-dest_files=["res://.godot/imported/OK hover.png-0183212ca714c4896446ed20dbaf32a3.ctex"]
+source_file="res://assets/images/icon speed P.png"
+dest_files=["res://.godot/imported/icon speed P.png-69c407e400518cfad4dec861c4eca5d8.ctex"]
 
 [params]
 

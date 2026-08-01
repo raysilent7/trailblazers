@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://ddgq0morqldye" path="res://scripts/menus/scoreList.gd" id="1_ln050"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="2_pcwan"]
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="2_tx8t6"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_34u3n"]
 [ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="4_gww4f"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="5_67pn6"]
 [ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="5_hv0y7"]
 [ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="6_pcwan"]
 
@@ -67,7 +67,7 @@ offset_right = 115.0
 offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_34u3n")
+theme_override_fonts/font = ExtResource("5_67pn6")
 theme_override_font_sizes/font_size = 28
 text = "SCORE BOARD"
 horizontal_alignment = 1

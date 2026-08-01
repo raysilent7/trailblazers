@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjfimfpqk2gsk"
-path="res://.godot/imported/up arrow pressed.png-2cdb40d745a960aca0b9acbeedf4dff8.ctex"
+uid="uid://cd1veckh7vee5"
+path="res://.godot/imported/icon ship P.png-3b9794112ea5db57a6908fc4a3cc16d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/up arrow pressed.png"
-dest_files=["res://.godot/imported/up arrow pressed.png-2cdb40d745a960aca0b9acbeedf4dff8.ctex"]
+source_file="res://assets/images/icon ship P.png"
+dest_files=["res://.godot/imported/icon ship P.png-3b9794112ea5db57a6908fc4a3cc16d3.ctex"]
 
 [params]
 

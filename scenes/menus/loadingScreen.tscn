@@ -42,10 +42,9 @@ _data = {
 &"transition": SubResource("Animation_ge2s3")
 }
 
-[node name="LoadingScreen" type="CanvasLayer" unique_id=1544109601 node_paths=PackedStringArray("animation")]
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1544109601]
 layer = 10
 script = ExtResource("1_bbeqc")
-animation = NodePath("transition")
 
 [node name="panel" type="Panel" parent="." unique_id=764020107]
 modulate = Color(1, 1, 1, 0)
@@ -56,6 +55,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
-[node name="transition" type="AnimationPlayer" parent="." unique_id=39514227]
+[node name="animation" type="AnimationPlayer" parent="." unique_id=39514227]
 libraries/ = SubResource("AnimationLibrary_bbeqc")
 autoplay = &"transition"

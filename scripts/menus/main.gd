@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $player/shipBody
+@onready var playerNode: Node2D = $player
 @onready var cheats: Node2D = $cheats
 @onready var HUDLayer: CanvasLayer = $HUD
 @onready var joystick: Node2D = $HUD/joystick
@@ -11,6 +12,10 @@ func _ready() -> void:
 	Audio.startMusicSystem()
 	cheats.visible = GameState.isDebugMode
 	joystick.visible = GameState.isApkMode
+	player.destroyed = true
+	var tween = create_tween()
+	tween.tween_property(playerNode, "position", Vector2(player.global_position.x, player.global_position.y-100.0), 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.finished.connect(func(): player.destroyed = false)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

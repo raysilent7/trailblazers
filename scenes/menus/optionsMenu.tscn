@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://485ffxs6t81s" path="res://scripts/menus/optionsMenu.gd" id="1_kd4hv"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="2_2sggb"]
 [ext_resource type="Texture2D" uid="uid://dsftye3hmtyv7" path="res://assets/images/simple box.png" id="2_5t0ao"]
-[ext_resource type="FontFile" uid="uid://c8a3j0tp3iysd" path="res://assets/others/trailblaze.ttf" id="3_2sggb"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_k3ncn"]
 [ext_resource type="Texture2D" uid="uid://ddwm04pxw3yv8" path="res://assets/images/back button.png" id="4_k3ncn"]
+[ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="5_3hx66"]
 [ext_resource type="Texture2D" uid="uid://i0q85eiiermv" path="res://assets/images/back pressed.png" id="5_g3dqd"]
 [ext_resource type="Texture2D" uid="uid://dxv0vfd1hnk4l" path="res://assets/images/back hover.png" id="6_64qlm"]
 
@@ -58,7 +58,7 @@ offset_right = 77.0
 offset_bottom = 64.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
 
@@ -76,7 +76,7 @@ offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 text = "GENERAL VOLUME"
 
 [node name="FX" type="Label" parent="panel" unique_id=646424551]
@@ -93,7 +93,7 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 text = "SOUND EFFECTS VOLUME"
 
 [node name="music" type="Label" parent="panel" unique_id=1529800555]
@@ -110,7 +110,7 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 text = "MUSIC VOLUME"
 
 [node name="generalVolume" type="HSlider" parent="panel" unique_id=227527869]
@@ -178,7 +178,7 @@ offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 text = "MUTE SOUND EFFECTS"
 
 [node name="musicMute" type="CheckBox" parent="panel" unique_id=1930638075]
@@ -195,7 +195,7 @@ offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
-theme_override_fonts/font = ExtResource("3_2sggb")
+theme_override_fonts/font = ExtResource("5_3hx66")
 text = "MUTE MUSIC"
 
 [node name="back" type="TextureButton" parent="." unique_id=1149626720]

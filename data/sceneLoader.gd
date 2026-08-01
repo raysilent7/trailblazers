@@ -12,10 +12,15 @@ var useSubThreads: bool = true
 func _ready() -> void:
 	set_process(false)
 
-func loadScene(path: String) -> void:
+func loadScene(path: String, loading: PackedScene) -> void:
 	scenePath = path
+	var newLoadScreen
 	
-	var newLoadScreen = loadingScreen.instantiate()
+	if loading:
+		newLoadScreen = loading.instantiate()
+	else:
+		newLoadScreen = loadingScreen.instantiate()
+	 
 	add_child(newLoadScreen)
 	progressChanged.connect(newLoadScreen.onProgressChanged)
 	loadFinished.connect(newLoadScreen.onLoadFinished)
