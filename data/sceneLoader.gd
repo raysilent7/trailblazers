@@ -8,6 +8,7 @@ var loadedResource: PackedScene
 var scenePath: String
 var progress: Array = []
 var useSubThreads: bool = true
+var hasCustomLoading: bool = false
 
 func _ready() -> void:
 	set_process(false)
@@ -17,13 +18,18 @@ func loadScene(path: String, loading: PackedScene) -> void:
 	var newLoadScreen
 	
 	if loading:
+		hasCustomLoading = true
 		newLoadScreen = loading.instantiate()
 	else:
 		newLoadScreen = loadingScreen.instantiate()
 	 
 	add_child(newLoadScreen)
 	progressChanged.connect(newLoadScreen.onProgressChanged)
-	loadFinished.connect(newLoadScreen.onLoadFinished)
+	
+	if hasCustomLoading:
+		loadFinished.connect(newLoadScreen.onLoadFinished)
+	else:
+		loadFinished.connect(newLoadScreen.onBasicLoadFinished)
 	
 	await newLoadScreen.loadingScreenReady
 	

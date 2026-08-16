@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="3_f4dmw"]
 [ext_resource type="Texture2D" uid="uid://duidfjkbtne3q" path="res://assets/images/banner.png" id="4_7yii3"]
 [ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="5_sf4ia"]
+[ext_resource type="Texture2D" uid="uid://dhjaffr06mwok" path="res://assets/images/ship-alone.png" id="7_f4dmw"]
 
 [node name="titleScreen" type="Control" unique_id=2133505788]
 custom_minimum_size = Vector2(960, 720)
@@ -92,6 +93,13 @@ theme_override_colors/font_color = Color(1, 0.8352941, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("5_sf4ia")
 theme_override_font_sizes/font_size = 48
 text = "SCORE"
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1564992217]
+position = Vector2(480, 691)
+
+[node name="sprite" type="Sprite2D" parent="player" unique_id=1617523406]
+texture = ExtResource("7_f4dmw")
+metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="buttons/start" to="." method="onStartMouseEntered"]
 [connection signal="pressed" from="buttons/start" to="." method="onStartPressed"]

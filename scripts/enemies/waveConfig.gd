@@ -2,7 +2,7 @@ extends Resource
 class_name WaveConfig
 
 var baseEnemies: int = 10
-var maxEnemies: int = 60
+var maxEnemies: int = 80
 var distanceScale: float = 0.2
 var maxTypes: int = 2
 
