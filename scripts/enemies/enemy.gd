@@ -13,15 +13,15 @@ func _process(delta: float) -> void:
 		call_deferred("queue_free")
 
 func onBodyEntered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		body.takeHit()
-		takeHit()
+	if body is Player:
+		body.hp.damage(1)
+		damage()
 
 func onAreaEntered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):
-		takeHit()
+		damage()
 
-func takeHit():
+func damage():
 	hits += 1
 	Audio.playEnemyHit()
 	print("enemy hits: " + str(hits))
