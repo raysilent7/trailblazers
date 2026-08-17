@@ -8,6 +8,6 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func onBodyEntered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().current_scene.player.takeHit()
+	if body is Player:
+		body.hp.damage()
 		queue_free()

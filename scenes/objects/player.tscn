@@ -1,10 +1,12 @@
-[gd_scene format=3 uid="uid://d13kpb31w2af6"]
+[gd_scene format=3 uid="uid://o30wf1eas4ix"]
 
-[ext_resource type="Script" uid="uid://6xohbxqjvmjc" path="res://scripts/objects/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://c5k75ai0tm87y" path="res://scripts/objects/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://37nglpo7g8hu" path="res://assets/images/ship-sheet.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://blx14wdui324k" path="res://scripts/components/InputComponent.gd" id="4_54rde"]
 [ext_resource type="Texture2D" uid="uid://ckpd3k48t0d04" path="res://assets/images/shield.png" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://bwup582lx3fwi" path="res://scripts/components/HealthComponent.gd" id="5_q8hb4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5uus"]
 radius = 9.0
 height = 26.0
 
@@ -28,21 +30,21 @@ region = Rect2(704, 0, 64, 64)
 atlas = ExtResource("2_qhqgy")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
-atlas = ExtResource("2_qhqgy")
-region = Rect2(384, 0, 64, 64)
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
 atlas = ExtResource("2_qhqgy")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qhqgy")
-region = Rect2(448, 0, 64, 64)
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
 atlas = ExtResource("2_qhqgy")
@@ -60,7 +62,7 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("2_qhqgy")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_54rde"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -89,7 +91,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_smehm")
+"texture": SubResource("AtlasTexture_d2wvv")
 }],
 "loop": 1,
 "name": &"idle1Dmg",
@@ -97,7 +99,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
+"texture": SubResource("AtlasTexture_y4r1p")
 }],
 "loop": 1,
 "name": &"idle2Dmg",
@@ -105,7 +107,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4r1p")
+"texture": SubResource("AtlasTexture_ur7pv")
 }],
 "loop": 1,
 "name": &"idle3Dmg",
@@ -113,7 +115,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
+"texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": 1,
 "name": &"idle4Dmg",
@@ -152,23 +154,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="Node2D" unique_id=1396747313]
-process_mode = 3
-
-[node name="shipBody" type="CharacterBody2D" parent="." unique_id=248429109 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=711292534 groups=["player"]]
+motion_mode = 1
 script = ExtResource("1_g2els")
 
-[node name="shipCollision" type="CollisionShape2D" parent="shipBody" unique_id=1090178142]
+[node name="shipCollision" type="CollisionShape2D" parent="." unique_id=2042390748]
 position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_g2els")
+shape = SubResource("CapsuleShape2D_h5uus")
 
-[node name="shipAnimeSpr" type="AnimatedSprite2D" parent="shipBody" unique_id=2017057706]
-sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"right"
+[node name="shipAnimeSpr" type="AnimatedSprite2D" parent="." unique_id=1791982849]
+sprite_frames = SubResource("SpriteFrames_54rde")
+animation = &"idle4Dmg"
 autoplay = "idle"
 
-[node name="shield" type="Sprite2D" parent="shipBody" unique_id=371268185]
+[node name="shield" type="Sprite2D" parent="." unique_id=279373515]
 visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_dqkch")
+
+[node name="InputComponent" type="Node" parent="." unique_id=295992878]
+script = ExtResource("4_54rde")
+metadata/_custom_type_script = "uid://blx14wdui324k"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=550258759]
+script = ExtResource("5_q8hb4")
+metadata/_custom_type_script = "uid://bwup582lx3fwi"
