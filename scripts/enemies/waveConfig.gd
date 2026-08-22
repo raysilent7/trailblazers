@@ -1,7 +1,6 @@
-extends Resource
-class_name WaveConfig
+class_name WaveConfig extends Resource
 
-var baseEnemies: int = 10
+var minEnemies: int = 10
 var maxEnemies: int = 80
 var distanceScale: float = 0.2
 var maxTypes: int = 2
@@ -25,10 +24,10 @@ var variantWeights: Dictionary = {
 	}
 
 func getEnemyCount(distance: float) -> int:
-	var scaled: int = baseEnemies + int(distance * distanceScale)
-	return clamp(scaled, baseEnemies, maxEnemies)
+	var scaled: int = minEnemies + int(distance * distanceScale)
+	return clamp(scaled, minEnemies, maxEnemies)
 
-func getRandomEnemyType() -> String:
+func getRandomEnemyTypes() -> Dictionary:
 	var total: int = 0
 	var acc: int = 0
 
@@ -41,8 +40,8 @@ func getRandomEnemyType() -> String:
 		acc += enemyWeights[key]
 		if ratio < acc:
 			print("tipo retornado: " + key)
-			return key
-	return "zigZag"
+			return {key: enemyWeights[key]}
+	return {"zigzag": 40}
 
 func getRandomObject() -> String:
 	var total: int = 0

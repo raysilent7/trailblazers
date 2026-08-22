@@ -1,4 +1,4 @@
-extends Area2D
+class_name Enemy extends Area2D
 
 var maxHits: int = 1
 var hits: int = 0

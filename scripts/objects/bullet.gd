@@ -9,5 +9,5 @@ func _process(delta: float) -> void:
 
 func onBodyEntered(body: Node2D) -> void:
 	if body is Player:
-		body.hp.damage()
+		body.hp.damage(1)
 		queue_free()

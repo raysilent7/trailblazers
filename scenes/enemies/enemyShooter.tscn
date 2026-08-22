@@ -18,7 +18,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4bqkb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"basic",
 "speed": 5.0
 }, {
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ugaei")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stalker",
 "speed": 5.0
 }]
@@ -35,22 +35,20 @@ animations = [{
 radius = 9.0
 height = 24.0
 
-[node name="Enemy" type="Node2D" unique_id=790581067 groups=["enemy"]]
-
-[node name="enemy" type="Area2D" parent="." unique_id=590729499 groups=["enemy"]]
+[node name="enemy" type="Area2D" unique_id=590729499 groups=["enemy"]]
 script = ExtResource("1_w4gdk")
 
-[node name="enemySpr" type="AnimatedSprite2D" parent="enemy" unique_id=1398887091]
+[node name="enemySpr" type="AnimatedSprite2D" parent="." unique_id=1398887091]
 sprite_frames = SubResource("SpriteFrames_gtgk1")
 animation = &"stalker"
 
-[node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=1589525974]
+[node name="enemyCollision" type="CollisionShape2D" parent="." unique_id=1589525974]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_w4gdk")
 
-[node name="fireRate" type="Timer" parent="enemy" unique_id=1087025883]
+[node name="fireRate" type="Timer" parent="." unique_id=1087025883]
 wait_time = 2.0
 
-[connection signal="area_entered" from="enemy" to="enemy" method="onAreaEntered"]
-[connection signal="body_entered" from="enemy" to="enemy" method="onBodyEntered"]
-[connection signal="timeout" from="enemy/fireRate" to="enemy" method="onFireRateTimeout"]
+[connection signal="area_entered" from="." to="." method="onAreaEntered"]
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]
+[connection signal="timeout" from="fireRate" to="." method="onFireRateTimeout"]
