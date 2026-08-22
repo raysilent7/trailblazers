@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp58tpma4d4kq"]
 
-[ext_resource type="Script" uid="uid://bqga2yy41lcem" path="res://scripts/enemies/enemySpawner.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cfjjv43ob43ix" path="res://scripts/menus/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://0alak4th6i8m" path="res://scripts/components/SpawnEnemiesComponent.gd" id="4_b3y2n"]
 [ext_resource type="Script" uid="uid://401c044bmo58" path="res://scripts/menus/HUD.gd" id="4_jyhfs"]
 [ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="7_b3y2n"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="7_trceg"]
@@ -41,8 +41,9 @@ metadata/_edit_lock_ = true
 [node name="distanceTravelled" type="Timer" parent="." unique_id=880972756]
 autostart = true
 
-[node name="enemySpawner" type="Node2D" parent="." unique_id=1506960885]
-script = ExtResource("1_0wfyh")
+[node name="Spawner" type="Node" parent="." unique_id=1222045703]
+script = ExtResource("4_b3y2n")
+metadata/_custom_type_script = "uid://0alak4th6i8m"
 
 [node name="Player" parent="." unique_id=711292534 instance=ExtResource("18_5llct")]
 position = Vector2(480, 760)

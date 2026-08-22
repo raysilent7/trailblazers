@@ -18,7 +18,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hxvil")
 }],
-"loop": true,
+"loop": 1,
 "name": &"basic",
 "speed": 5.0
 }, {
@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlgik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stalker",
 "speed": 5.0
 }]
@@ -35,18 +35,16 @@ animations = [{
 radius = 13.0
 height = 26.0
 
-[node name="Enemy" type="Node2D" unique_id=241384343 groups=["enemy"]]
-
-[node name="enemy" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
+[node name="enemy" type="Area2D" unique_id=347725332 groups=["enemy"]]
 script = ExtResource("1_55jar")
 
-[node name="enemySpr" type="AnimatedSprite2D" parent="enemy" unique_id=260702819]
+[node name="enemySpr" type="AnimatedSprite2D" parent="." unique_id=260702819]
 sprite_frames = SubResource("SpriteFrames_5r7lt")
 animation = &"stalker"
 
-[node name="enemyCollision" type="CollisionShape2D" parent="enemy" unique_id=200466641]
+[node name="enemyCollision" type="CollisionShape2D" parent="." unique_id=200466641]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_7p1mj")
 
-[connection signal="area_entered" from="enemy" to="enemy" method="onAreaEntered"]
-[connection signal="body_entered" from="enemy" to="enemy" method="onBodyEntered"]
+[connection signal="area_entered" from="." to="." method="onAreaEntered"]
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]

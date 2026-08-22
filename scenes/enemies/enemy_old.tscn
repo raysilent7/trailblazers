@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c0wj267v1374w"]
+
+[ext_resource type="Script" uid="uid://qs3jkwmgxekl" path="res://scripts/enemies/enemy.gd" id="1_md0e3"]
+
+[node name="Enemy" type="Node2D" unique_id=241384343 groups=["enemy"]]
+
+[node name="enemyBase" type="Area2D" parent="." unique_id=347725332 groups=["enemy"]]
+script = ExtResource("1_md0e3")
+
+[connection signal="area_entered" from="enemyBase" to="enemyBase" method="onAreaEntered"]
+[connection signal="body_entered" from="enemyBase" to="enemyBase" method="onBodyEntered"]
