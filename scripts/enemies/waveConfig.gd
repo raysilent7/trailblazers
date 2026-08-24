@@ -6,21 +6,21 @@ var distanceScale: float = 0.2
 var maxTypes: int = 2
 
 var enemyWeights: Dictionary = {
-	"zigZag": 40,
-	"charger": 25,
-	"erratic": 15,
-	"shooter": 10,
-	"chaser": 10
+	Constants.ENEMY_ZIGZAG: 40,
+	Constants.ENEMY_CHARGER: 25,
+	Constants.ENEMY_ERRATIC: 15,
+	Constants.ENEMY_SHOOTER: 10,
+	Constants.ENEMY_CHASER: 10
 }
 
 var objectWeights: Dictionary = {
-	"pixelHole": 40,
-	"star": 60
+	Constants.PIXEL_HOLE: 40,
+	Constants.STAR: 60
 }
 
 var variantWeights: Dictionary = {
-	"basic": 90,
-	"stalker": 10
+	Constants.VARIANT_BASIC: 90,
+	Constants.VARIANT_STALKER: 10
 	}
 
 func getEnemyCount(distance: float) -> int:
@@ -41,7 +41,7 @@ func getRandomEnemyTypes() -> Dictionary:
 		if ratio < acc:
 			print("tipo retornado: " + key)
 			return {key: enemyWeights[key]}
-	return {"zigzag": 40}
+	return {Constants.ENEMY_ZIGZAG: 40}
 
 func getRandomObject() -> String:
 	var total: int = 0
@@ -57,7 +57,7 @@ func getRandomObject() -> String:
 		if ratio < acc:
 			print("tipo retornado: " + key)
 			return key
-	return "star"
+	return Constants.STAR
 
 func getRandomVariant() -> String:
 	var total: int = 0
@@ -73,4 +73,4 @@ func getRandomVariant() -> String:
 		if ratio < acc:
 			print("variante retornada: " + key)
 			return key
-	return "basic"
+	return Constants.VARIANT_BASIC
