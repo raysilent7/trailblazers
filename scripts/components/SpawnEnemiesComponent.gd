@@ -17,6 +17,7 @@ func _ready() -> void:
 	waveTimer.timeout.connect(onWaveTimer)
 	add_child(waveTimer)
 	waveTimer.start()
+	await get_tree().create_timer(2.0).timeout
 	spawnWave()
 
 func onWaveTimer() -> void:
@@ -33,7 +34,7 @@ func spawnWave() -> void:
 		add_child(enemyFactory.createRandomUpgrade(getRandomSpawnPosition()))
 	
 	if totalWaves % 5 == 0:
-		add_child(enemyFactory.spawnEnemy(waveConfig.getRandomObject(), getRandomSpawnPosition()))
+		add_child(enemyFactory.spawnEnemy(waveConfig.getRandomObject(), getRandomSpawnPosition(), ""))
 	
 	for i in count:
 		if types.size() < maxTypes:
@@ -41,9 +42,7 @@ func spawnWave() -> void:
 			types.merge(waveConfig.getRandomEnemyTypes())
 		var chosenType: String = chooseType(types)
 		var pos: Vector2 = getRandomSpawnPosition()
-		var variant: String = waveConfig.getRandomVariant()
-		var enemy: Enemy = enemyFactory.spawnEnemy(chosenType, pos)
-		enemy.choseVariant(variant)
+		var enemy: Enemy = enemyFactory.spawnEnemy(chosenType, pos, waveConfig.getRandomVariant())
 		add_child(enemy)
 
 func chooseType(typesReturned: Dictionary) -> String:
@@ -74,4 +73,4 @@ func endBoss() -> void:
 	bossActive = false
 
 func summonStar() -> void:
-	add_child(enemyFactory.spawnEnemy("star", getRandomSpawnPosition()))
+	add_child(enemyFactory.spawnEnemy(Constants.STAR, getRandomSpawnPosition(), ""))

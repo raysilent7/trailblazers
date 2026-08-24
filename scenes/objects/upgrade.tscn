@@ -6,15 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_346kr"]
 size = Vector2(32, 32)
 
-[node name="Upgrade" type="Node2D" unique_id=1259291753]
-
-[node name="upgrade" type="Area2D" parent="." unique_id=1816373314]
+[node name="upgrade" type="Area2D" unique_id=1816373314]
 script = ExtResource("1_b2g4b")
 
-[node name="upgradeSpr" type="Sprite2D" parent="upgrade" unique_id=1519671241]
+[node name="upgradeSpr" type="Sprite2D" parent="." unique_id=1519671241]
 texture = ExtResource("2_g1npk")
 
-[node name="upgradeCollision" type="CollisionShape2D" parent="upgrade" unique_id=749435424]
+[node name="upgradeCollision" type="CollisionShape2D" parent="." unique_id=749435424]
 shape = SubResource("RectangleShape2D_346kr")
 
-[connection signal="body_entered" from="upgrade" to="upgrade" method="onBodyEntered"]
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]

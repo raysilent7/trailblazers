@@ -14,6 +14,7 @@ var textures: Dictionary = {
 	"shield": preload("res://assets/images/armor upgrade.png"),
 	"projectile": preload("res://assets/images/bullet upgrade.png")
 }
+
 var chosenUpgrade: String
 var speed: float = 50.0
 
