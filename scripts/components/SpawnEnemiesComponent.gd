@@ -27,6 +27,7 @@ func onWaveTimer() -> void:
 	spawnWave()
 
 func spawnWave() -> void:
+	print("wave: " + str(totalWaves))
 	totalWaves += 1
 	var count: int = waveConfig.getEnemyCount(GameState.distanceTraveled)
 	
@@ -40,9 +41,7 @@ func spawnWave() -> void:
 		if types.size() < maxTypes:
 			print("types size: " + str(types.size()))
 			types.merge(waveConfig.getRandomEnemyTypes())
-		var chosenType: String = chooseType(types)
-		var pos: Vector2 = getRandomSpawnPosition()
-		var enemy: Enemy = enemyFactory.spawnEnemy(chosenType, pos, waveConfig.getRandomVariant())
+		var enemy: Enemy = enemyFactory.spawnEnemy(chooseType(types), getRandomSpawnPosition(), waveConfig.getRandomVariant())
 		add_child(enemy)
 
 func chooseType(typesReturned: Dictionary) -> String:
@@ -73,4 +72,4 @@ func endBoss() -> void:
 	bossActive = false
 
 func summonStar() -> void:
-	add_child(enemyFactory.spawnEnemy(Constants.STAR, getRandomSpawnPosition(), ""))
+	add_child(enemyFactory.spawnEnemy(SpaceEntities.STAR, getRandomSpawnPosition(), ""))

@@ -3,16 +3,16 @@ class_name Upgrade extends Area2D
 @onready var sprite: Sprite2D = $upgradeSpr
 
 var upgradeWeights: Dictionary = {
-	"speed": 35, 
-	"bullet": 25, 
-	"shield": 30, 
-	"warp": 5
+	UpgradeTypes.SPEED: 35, 
+	UpgradeTypes.WEAPON: 25, 
+	UpgradeTypes.SHIELD: 30, 
+	UpgradeTypes.WARP: 5
 }
 
 var textures: Dictionary = {
-	"speed": preload("res://assets/images/speed upgrade.png"),
-	"shield": preload("res://assets/images/armor upgrade.png"),
-	"projectile": preload("res://assets/images/bullet upgrade.png")
+	UpgradeTypes.SPEED: preload("res://assets/images/speed upgrade.png"),
+	UpgradeTypes.SHIELD: preload("res://assets/images/armor upgrade.png"),
+	UpgradeTypes.WEAPON: preload("res://assets/images/bullet upgrade.png")
 }
 
 var chosenUpgrade: String
@@ -29,7 +29,8 @@ func _process(delta: float) -> void:
 
 func onBodyEntered(body: Node2D) -> void:
 	if body is Player:
-		body.applyUpgrade(chosenUpgrade)
+		print("upgrade aplicado: " + chosenUpgrade)
+		body.upgrades.applyUpgrade(chosenUpgrade)
 		queue_free()
 
 func getRandomUpgrade() -> String:
@@ -46,4 +47,4 @@ func getRandomUpgrade() -> String:
 		if ratio < acc:
 			print("tipo retornado: " + key)
 			return key
-	return "speed"
+	return UpgradeTypes.SPEED

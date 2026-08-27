@@ -2,8 +2,8 @@ class_name BehaviourComponent extends Node
 
 var enemy: Enemy
 var player: Player
-var enemyType: String = Constants.ENEMY_ZIGZAG
-var variant: String = Constants.VARIANT_BASIC
+var enemyType: String = SpaceEntities.ENEMY_ZIGZAG
+var variant: String = SpaceEntities.VARIANT_BASIC
 var state: String = "descending"
 var direction: Vector2 = Vector2.ZERO
 var timeToChange: float = 0.0
@@ -16,7 +16,6 @@ var frequency: float = 3.0
 var lateralSpeed: float = 600.0
 var screenMargin: float = 10.0
 var chargeSpeed: float = 700.0
-var stopY: float = 350.0
 var waitTime: float = 2.5
 
 const SEPARATOR: String = "-"
@@ -29,7 +28,7 @@ func chargerBehaviour(delta: float) -> void:
 	match state:
 		"descending":
 			enemy.global_position.y += GameState.speedY * delta
-			if enemy.global_position.y >= stopY:
+			if enemy.global_position.y >= targetY:
 				state = "waiting"
 				startWait()
 		"charging":
@@ -43,14 +42,14 @@ func startWait() -> void:
 
 func chaserBehaviour(delta: float) -> void:
 	if player == null:
-		enemy.global_position.y += (GameState.speedY + 50.0) * delta
+		enemy.global_position.y += GameState.speedY * delta
 		return
 
 	var dir: Vector2 = (player.global_position - enemy.global_position).normalized()
 	enemy.global_position += dir * GameState.speedY * delta
 
 func erraticBehaviour(delta: float) -> void:
-	var viewport = get_tree().get_viewport_rect()
+	var viewport = get_tree().current_scene.get_viewport_rect()
 	timeToChange = clamp(timeToChange-delta, 0, 1.6)
 
 	if timeToChange == 0:

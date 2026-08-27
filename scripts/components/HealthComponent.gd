@@ -5,6 +5,7 @@ class_name HealthComponent extends Node
 var hp: int = 0
 var immune: bool = false
 var shieldHits: int
+var heatDamage: float
 
 signal healthChanged(emitter: Node2D, current: int, max: int)
 signal shieldChanged(current: int, max: int)

@@ -3,16 +3,16 @@ class_name EnemyFactory extends Node
 var upgradeScene: PackedScene = preload("res://scenes/objects/upgrade.tscn")
 
 var spaceEntities: Dictionary = {
-	Constants.PIXEL_HOLE: preload("uid://db0ihrparvaky"),
-	Constants.STAR: preload("uid://bba3ks1e4gnqx"),
-	Constants.ENEMY_ERRATIC: preload("uid://b05mgvaaebo3c"),
-	Constants.ENEMY_ZIGZAG: preload("uid://cvc2bw2gydnrv"),
-	Constants.ENEMY_CHARGER: preload("uid://ch8bl470wur27"),
-	Constants.ENEMY_SHOOTER: preload("uid://bbliw10gqghga"),
-	Constants.ENEMY_CHASER: preload("uid://48y4fy5d30qi")
+	SpaceEntities.PIXEL_HOLE: preload("uid://db0ihrparvaky"),
+	SpaceEntities.STAR: preload("uid://bba3ks1e4gnqx"),
+	SpaceEntities.ENEMY_ERRATIC: preload("uid://b05mgvaaebo3c"),
+	SpaceEntities.ENEMY_ZIGZAG: preload("uid://cvc2bw2gydnrv"),
+	SpaceEntities.ENEMY_CHARGER: preload("uid://ch8bl470wur27"),
+	SpaceEntities.ENEMY_SHOOTER: preload("uid://bbliw10gqghga"),
+	SpaceEntities.ENEMY_CHASER: preload("uid://48y4fy5d30qi")
 }
 
-func spawnEnemy(enemyType: String, position: Vector2, variant: String) -> Enemy:
+func spawnEnemy(enemyType: String, position: Vector2, variant: String) -> Area2D:
 	print("inimigo escolhido: " + enemyType)
 	var scene
 	scene = spaceEntities.get(enemyType)
