@@ -1,16 +1,18 @@
-extends Node2D
+extends Area2D
+
+@onready var singularity: Area2D = $singularity
 
 var gravityForce := 400.0
 var speed: float = 50.0
-var mainScene
+var enemyType: String
+var variant: String
 
 func _ready() -> void:
-	mainScene = get_tree().current_scene
+	singularity.body_entered.connect(onSingularityBodyEntered)
 
 func _process(delta: float) -> void:
 	position.y += speed * delta
 	if global_position.y > 880:
-		print("pixel hole morreu")
 		call_deferred("queue_free")
 
 func _physics_process(delta):
@@ -27,4 +29,5 @@ func _physics_process(delta):
 		player.global_position += direction * force * delta
 
 func onSingularityBodyEntered(body: Node2D) -> void:
-	body.destroyShip()
+	if body is Player:
+		body.destroyShip()

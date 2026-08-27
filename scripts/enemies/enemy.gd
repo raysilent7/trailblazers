@@ -40,6 +40,5 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 
 func setBehaviourAndVariant(chosenType: String, chosenVariant: String) -> void:
-	print(behaviour)
 	behaviour.enemyType = chosenType
 	behaviour.variant = chosenVariant

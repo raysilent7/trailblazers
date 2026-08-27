@@ -1,4 +1,4 @@
-class_name Constants extends Node
+class_name SpaceEntities extends Node
 
 #Enemy types
 const ENEMY_GENERIC = "enemy"

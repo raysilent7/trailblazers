@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://blx14wdui324k" path="res://scripts/components/InputComponent.gd" id="4_54rde"]
 [ext_resource type="Texture2D" uid="uid://ckpd3k48t0d04" path="res://assets/images/shield.png" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bwup582lx3fwi" path="res://scripts/components/HealthComponent.gd" id="5_q8hb4"]
+[ext_resource type="Script" uid="uid://cijujxxluu8u" path="res://scripts/components/UpgradeComponent.gd" id="6_ksjmp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5uus"]
 radius = 9.0
@@ -180,3 +181,7 @@ metadata/_custom_type_script = "uid://blx14wdui324k"
 [node name="HealthComponent" type="Node" parent="." unique_id=550258759]
 script = ExtResource("5_q8hb4")
 metadata/_custom_type_script = "uid://bwup582lx3fwi"
+
+[node name="UpgradeComponent" type="Node" parent="." unique_id=1511174672]
+script = ExtResource("6_ksjmp")
+metadata/_custom_type_script = "uid://cijujxxluu8u"
