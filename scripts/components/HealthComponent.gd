@@ -27,7 +27,6 @@ func damage(amount: int) -> void:
 		hp = clamp(hp - amount, 0, maxHp)
 		ping()
 		Audio.playPlayerHit()
-		print("player hits: " + str(hp))
 		if hp == 0:
 			immune = true
 			died.emit()
