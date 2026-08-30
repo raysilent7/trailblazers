@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: Player = $Player
 @onready var cheats: Node2D = $cheats
-@onready var HUDLayer: CanvasLayer = $HUD
+@onready var HUDLayer: HUD = $HUD
 @onready var joystick: Node2D = $HUD/joystick
 var gameOverPopupScene: PackedScene = preload("res://scenes/menus/gameOverPopup.tscn")
 var pausePopupScene: PackedScene = preload("res://scenes/menus/pauseMenu.tscn")
@@ -11,6 +11,9 @@ func _ready() -> void:
 	Audio.startMusicSystem()
 	cheats.visible = GameState.isDebugMode
 	joystick.visible = GameState.isApkMode
+	player.hp.healthChanged.connect(updateHits)
+	player.hp.shieldChanged.connect(updateShieldOnHUD)
+	player.upgrades.upgradeAcquired.connect(receiveUpgradeInfo)
 	player.shipDestroyed.connect(showGameOverPopup)
 	player.hp.immune = true
 	var tween = create_tween()
@@ -22,6 +25,16 @@ func _input(event: InputEvent) -> void:
 		var pauseMenu = pausePopupScene.instantiate()
 		HUDLayer.add_child(pauseMenu)
 		get_tree().paused = true
+
+func receiveUpgradeInfo(type: String, current: int, maxValue:int) -> void:
+	HUDLayer.receiveUpgradeInfo(type, current, maxValue)
+
+func updateHits(emitter: Node2D, current: int, maxValue: int) -> void:
+	current += 1
+	HUDLayer.updateHits(emitter, current , maxValue)
+
+func updateShieldOnHUD(current: int, _maxValue: int) -> void:
+	HUDLayer.updateShield(current)
 
 func onDistanceTravelledTimeout() -> void:
 	GameState.distanceTraveled += 1

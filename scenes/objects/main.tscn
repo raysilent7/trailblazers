@@ -22,78 +22,6 @@
 script = ExtResource("1_sugp2")
 metadata/_edit_lock_ = true
 
-[node name="BGParallax" type="Node2D" parent="." unique_id=713916239]
-metadata/_edit_lock_ = true
-
-[node name="far" type="Parallax2D" parent="BGParallax" unique_id=1518668737]
-repeat_size = Vector2(1024, 1024)
-ignore_camera_scroll = true
-script = ExtResource("7_trceg")
-metadata/_edit_lock_ = true
-
-[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=323967914]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("8_tipki")
-stretch_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="distanceTravelled" type="Timer" parent="." unique_id=880972756]
-autostart = true
-
-[node name="Spawner" type="Node" parent="." unique_id=1222045703]
-script = ExtResource("4_b3y2n")
-metadata/_custom_type_script = "uid://0alak4th6i8m"
-
-[node name="Player" parent="." unique_id=711292534 instance=ExtResource("18_5llct")]
-position = Vector2(480, 760)
-
-[node name="cheats" type="Node2D" parent="." unique_id=1066532222]
-visible = false
-
-[node name="speedCheat" type="Button" parent="cheats" unique_id=274059491]
-offset_left = 19.0
-offset_top = 133.0
-offset_right = 74.0
-offset_bottom = 164.0
-text = "speed"
-
-[node name="bulletCheat" type="Button" parent="cheats" unique_id=883894192]
-offset_left = 21.0
-offset_top = 198.0
-offset_right = 74.0
-offset_bottom = 229.0
-text = "bullet"
-
-[node name="armorCheat" type="Button" parent="cheats" unique_id=1991382874]
-offset_left = 18.0
-offset_top = 168.0
-offset_right = 75.0
-offset_bottom = 199.0
-text = "armor"
-
-[node name="invincible" type="Button" parent="cheats" unique_id=250020875]
-offset_left = 15.0
-offset_top = 231.0
-offset_right = 97.0
-offset_bottom = 262.0
-text = "invincible"
-
-[node name="sound" type="Button" parent="cheats" unique_id=900066417]
-offset_left = 19.0
-offset_top = 265.0
-offset_right = 75.0
-offset_bottom = 296.0
-text = "sound
-"
-
-[node name="summon star" type="Button" parent="cheats" unique_id=1565346472]
-offset_left = 17.0
-offset_top = 292.0
-offset_right = 56.0
-offset_bottom = 323.0
-text = "star"
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=219636573]
 layer = 10
 script = ExtResource("4_jyhfs")
@@ -258,6 +186,77 @@ texture = ExtResource("12_trceg")
 [node name="stick" type="Sprite2D" parent="HUD/joystick" unique_id=63487427]
 position = Vector2(110, 610)
 texture = ExtResource("13_a8y0u")
+
+[node name="BGParallax" type="Node2D" parent="." unique_id=713916239]
+metadata/_edit_lock_ = true
+
+[node name="far" type="Parallax2D" parent="BGParallax" unique_id=1518668737]
+repeat_size = Vector2(1024, 1024)
+ignore_camera_scroll = true
+script = ExtResource("7_trceg")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="BGParallax/far" unique_id=323967914]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_tipki")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="distanceTravelled" type="Timer" parent="." unique_id=880972756]
+autostart = true
+
+[node name="Spawner" type="Node" parent="." unique_id=1222045703]
+script = ExtResource("4_b3y2n")
+metadata/_custom_type_script = "uid://0alak4th6i8m"
+
+[node name="Player" parent="." unique_id=711292534 instance=ExtResource("18_5llct")]
+position = Vector2(480, 760)
+
+[node name="cheats" type="Node2D" parent="." unique_id=1066532222]
+
+[node name="speedCheat" type="Button" parent="cheats" unique_id=274059491]
+offset_left = 19.0
+offset_top = 133.0
+offset_right = 74.0
+offset_bottom = 164.0
+text = "speed"
+
+[node name="bulletCheat" type="Button" parent="cheats" unique_id=883894192]
+offset_left = 21.0
+offset_top = 198.0
+offset_right = 74.0
+offset_bottom = 229.0
+text = "bullet"
+
+[node name="armorCheat" type="Button" parent="cheats" unique_id=1991382874]
+offset_left = 18.0
+offset_top = 168.0
+offset_right = 75.0
+offset_bottom = 199.0
+text = "armor"
+
+[node name="invincible" type="Button" parent="cheats" unique_id=250020875]
+offset_left = 15.0
+offset_top = 231.0
+offset_right = 97.0
+offset_bottom = 262.0
+text = "invincible"
+
+[node name="sound" type="Button" parent="cheats" unique_id=900066417]
+offset_left = 19.0
+offset_top = 265.0
+offset_right = 75.0
+offset_bottom = 296.0
+text = "sound
+"
+
+[node name="summon star" type="Button" parent="cheats" unique_id=1565346472]
+offset_left = 17.0
+offset_top = 292.0
+offset_right = 56.0
+offset_bottom = 323.0
+text = "star"
 
 [connection signal="timeout" from="distanceTravelled" to="." method="onDistanceTravelledTimeout"]
 [connection signal="pressed" from="cheats/speedCheat" to="." method="onSpeedCheatPressed"]
