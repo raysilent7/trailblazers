@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://cfg4haya6vet1"]
+
+[ext_resource type="Script" uid="uid://qs3jkwmgxekl" path="res://scripts/enemies/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://pntmoe07qxgv" path="res://assets/images/charger.png" id="2_tihwb"]
+[ext_resource type="Texture2D" uid="uid://bmuqa3hmimaeg" path="res://assets/images/chaser.png" id="3_p7w77"]
+[ext_resource type="Texture2D" uid="uid://da1ptfuj8s258" path="res://assets/images/erratic.png" id="4_k4gvh"]
+[ext_resource type="Texture2D" uid="uid://bier7t2usemq6" path="res://assets/images/shooter.png" id="5_twn6s"]
+[ext_resource type="Texture2D" uid="uid://yaqr20hf08gw" path="res://assets/images/zigZag.png" id="6_sb86v"]
+[ext_resource type="Texture2D" uid="uid://dxclv82jvauif" path="res://assets/images/charger stalker.png" id="7_pe3k2"]
+[ext_resource type="Texture2D" uid="uid://d3y0pif254hlh" path="res://assets/images/stalker chaser.png" id="8_kugq1"]
+[ext_resource type="Texture2D" uid="uid://oxxafbuyqvea" path="res://assets/images/erratic stalker.png" id="9_x3klb"]
+[ext_resource type="Texture2D" uid="uid://dmxd0x3q2arvb" path="res://assets/images/shooter stalker.png" id="10_smbsv"]
+[ext_resource type="Texture2D" uid="uid://d3i22yhp0ruso" path="res://assets/images/zigzag stalker.png" id="11_maese"]
+[ext_resource type="Script" uid="uid://bwup582lx3fwi" path="res://scripts/components/HealthComponent.gd" id="12_p7w77"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxvil"]
+atlas = ExtResource("2_tihwb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f0mh"]
+atlas = ExtResource("3_p7w77")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc4hx"]
+atlas = ExtResource("4_k4gvh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6y8w"]
+atlas = ExtResource("5_twn6s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2gxb"]
+atlas = ExtResource("6_sb86v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlgik"]
+atlas = ExtResource("7_pe3k2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xxyr"]
+atlas = ExtResource("8_kugq1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiois"]
+atlas = ExtResource("9_x3klb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4ejd"]
+atlas = ExtResource("10_smbsv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5dn"]
+atlas = ExtResource("11_maese")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ma66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxvil")
+}],
+"loop": 1,
+"name": &"basic-charger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f0mh")
+}],
+"loop": 1,
+"name": &"basic-chaser",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc4hx")
+}],
+"loop": 1,
+"name": &"basic-erratic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6y8w")
+}],
+"loop": 1,
+"name": &"basic-shooter",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2gxb")
+}],
+"loop": 1,
+"name": &"basic-zigzag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlgik")
+}],
+"loop": 1,
+"name": &"stalker-charger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xxyr")
+}],
+"loop": 1,
+"name": &"stalker-chaser",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiois")
+}],
+"loop": 1,
+"name": &"stalker-erratic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4ejd")
+}],
+"loop": 1,
+"name": &"stalker-shooter",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5dn")
+}],
+"loop": 1,
+"name": &"stalker-zigzag",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emj2s"]
+radius = 13.0
+height = 26.0
+
+[node name="Enemy" type="Area2D" unique_id=1290980265 groups=["enemy"]]
+script = ExtResource("1_md0e3")
+
+[node name="enemySpr" type="AnimatedSprite2D" parent="." unique_id=683528183]
+sprite_frames = SubResource("SpriteFrames_8ma66")
+animation = &"stalker-zigzag"
+
+[node name="enemyCollision" type="CollisionShape2D" parent="." unique_id=187271440]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_emj2s")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=625956297]
+script = ExtResource("12_p7w77")
+metadata/_custom_type_script = "uid://bwup582lx3fwi"
+
+[node name="fireRate" type="Timer" parent="." unique_id=1702673822]
+wait_time = 2.0

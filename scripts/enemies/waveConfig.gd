@@ -1,34 +1,33 @@
-extends Resource
-class_name WaveConfig
+class_name WaveConfig extends Resource
 
-var baseEnemies: int = 10
+var minEnemies: int = 10
 var maxEnemies: int = 80
 var distanceScale: float = 0.2
 var maxTypes: int = 2
 
 var enemyWeights: Dictionary = {
-	"zigZag": 40,
-	"charger": 25,
-	"erratic": 15,
-	"shooter": 10,
-	"chaser": 10
+	SpaceEntities.ENEMY_ZIGZAG: 40,
+	SpaceEntities.ENEMY_CHARGER: 25,
+	SpaceEntities.ENEMY_ERRATIC: 15,
+	SpaceEntities.ENEMY_SHOOTER: 10,
+	SpaceEntities.ENEMY_CHASER: 10
 }
 
 var objectWeights: Dictionary = {
-	"pixelHole": 40,
-	"star": 60
+	SpaceEntities.PIXEL_HOLE: 40,
+	SpaceEntities.STAR: 60
 }
 
 var variantWeights: Dictionary = {
-	"basic": 90,
-	"stalker": 10
+	SpaceEntities.VARIANT_BASIC: 90,
+	SpaceEntities.VARIANT_STALKER: 10
 	}
 
 func getEnemyCount(distance: float) -> int:
-	var scaled: int = baseEnemies + int(distance * distanceScale)
-	return clamp(scaled, baseEnemies, maxEnemies)
+	var scaled: int = minEnemies + int(distance * distanceScale)
+	return clamp(scaled, minEnemies, maxEnemies)
 
-func getRandomEnemyType() -> String:
+func getRandomEnemyTypes() -> Dictionary:
 	var total: int = 0
 	var acc: int = 0
 
@@ -41,8 +40,8 @@ func getRandomEnemyType() -> String:
 		acc += enemyWeights[key]
 		if ratio < acc:
 			print("tipo retornado: " + key)
-			return key
-	return "zigZag"
+			return {key: enemyWeights[key]}
+	return {SpaceEntities.ENEMY_ZIGZAG: 40}
 
 func getRandomObject() -> String:
 	var total: int = 0
@@ -58,7 +57,7 @@ func getRandomObject() -> String:
 		if ratio < acc:
 			print("tipo retornado: " + key)
 			return key
-	return "star"
+	return SpaceEntities.STAR
 
 func getRandomVariant() -> String:
 	var total: int = 0
@@ -74,4 +73,4 @@ func getRandomVariant() -> String:
 		if ratio < acc:
 			print("variante retornada: " + key)
 			return key
-	return "basic"
+	return SpaceEntities.VARIANT_BASIC
