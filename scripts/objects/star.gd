@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 
 func accumulateHeatDamage() -> void:
 	if insideRadius:
-		player.heatDamage += 0.0025
+		player.hp.heatDamage += 0.5
 		if player.hp.heatDamage >= 1.0:
 			player.hp.damage(1)
 			player.hp.heatDamage = 0.0

@@ -80,6 +80,7 @@ func updateShieldVisual(current: int, _max: int) -> void:
 		shield.visible = false
 
 func destroyShip():
+	hp.immune = true
 	Audio.playExplosion()
 	animation.play("explosion")
 	await animation.animation_finished

@@ -34,6 +34,7 @@ func updateHits(emitter: Node2D, current: int, maxValue: int) -> void:
 	HUDLayer.updateHits(emitter, current , maxValue)
 
 func updateShieldOnHUD(current: int, _maxValue: int) -> void:
+	current += 1
 	HUDLayer.updateShield(current)
 
 func onDistanceTravelledTimeout() -> void:

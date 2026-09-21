@@ -30,4 +30,5 @@ func _physics_process(delta):
 
 func onSingularityBodyEntered(body: Node2D) -> void:
 	if body is Player:
-		body.destroyShip()
+		if not body.hp.immune:
+			body.destroyShip()

@@ -21,3 +21,4 @@ energy = 0.8
 texture = ExtResource("3_ef0hr")
 
 [node name="damageTick" type="Timer" parent="." unique_id=1459840459]
+autostart = true

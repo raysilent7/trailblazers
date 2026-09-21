@@ -19,7 +19,7 @@ func damage(amount: int) -> void:
 	if not immune:
 		if shieldHits > 0:
 			Audio.playShieldHit()
-			shieldHits = clamp(shieldHits - 1, 0, maxShieldHits)
+			shieldHits = clamp(shieldHits - amount, 0, maxShieldHits)
 			shieldChanged.emit(shieldHits, maxShieldHits)
 			print("shield hits: " + str(shieldHits))
 			return
