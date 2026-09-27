@@ -6,17 +6,27 @@
 [ext_resource type="FontFile" uid="uid://bplwfx2xeajdp" path="res://assets/others/font.ttf" id="7_b3y2n"]
 [ext_resource type="Script" uid="uid://bgfobqujckvr0" path="res://scripts/menus/BG.gd" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://c7wfjkptdmoc1" path="res://assets/images/tile1.png" id="8_tipki"]
-[ext_resource type="Script" uid="uid://b6eqsq5w2x3ra" path="res://scripts/menus/mobileJoystick.gd" id="9_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cyh70xuchhhp5" path="res://assets/images/bar filler line P.png" id="9_k5wrm"]
 [ext_resource type="Texture2D" uid="uid://cd1veckh7vee5" path="res://assets/images/icon ship P.png" id="9_qd8o6"]
 [ext_resource type="Texture2D" uid="uid://b0q4cugn0e0s0" path="res://assets/images/icon shield P.png" id="10_b3y2n"]
 [ext_resource type="Texture2D" uid="uid://d22lywol4gpfw" path="res://assets/images/icon speed P.png" id="11_5llct"]
 [ext_resource type="Texture2D" uid="uid://bgq1eoja7qsf4" path="res://assets/images/icon projectile P.png" id="12_jra77"]
-[ext_resource type="Texture2D" uid="uid://jsgqvsnwu04l" path="res://assets/images/joystick base.png" id="12_trceg"]
-[ext_resource type="Texture2D" uid="uid://bluknkoaeogfp" path="res://assets/images/directional.png" id="13_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://djfhjujtgvub3" path="res://assets/images/shoot button.png" id="13_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://cg41bt8vvrpgv" path="res://assets/images/shoot button pressed.png" id="18_0ld40"]
 [ext_resource type="PackedScene" uid="uid://o30wf1eas4ix" path="res://scenes/objects/player.tscn" id="18_5llct"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3y2n"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8745098, 0.24313726, 0.13725491, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 2
+anti_aliasing = false
 
 [node name="Main" type="Node2D" unique_id=780503707]
 script = ExtResource("1_sugp2")
@@ -176,16 +186,18 @@ texture_pressed = ExtResource("18_0ld40")
 action = "shoot"
 visibility_mode = 1
 
-[node name="joystick" type="Node2D" parent="HUD" unique_id=1148488641]
-script = ExtResource("9_0ld40")
-
-[node name="base" type="Sprite2D" parent="HUD/joystick" unique_id=217813915]
-position = Vector2(110, 610)
-texture = ExtResource("12_trceg")
-
-[node name="stick" type="Sprite2D" parent="HUD/joystick" unique_id=63487427]
-position = Vector2(110, 610)
-texture = ExtResource("13_a8y0u")
+[node name="VirtualJoystick" type="VirtualJoystick" parent="HUD" unique_id=329202924]
+offset_left = 90.0
+offset_top = 590.0
+offset_right = 130.0
+offset_bottom = 630.0
+theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_b3y2n")
+joystick_size = 167.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
+visibility_mode = 1
 
 [node name="BGParallax" type="Node2D" parent="." unique_id=713916239]
 metadata/_edit_lock_ = true
