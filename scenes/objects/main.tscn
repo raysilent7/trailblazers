@@ -28,6 +28,15 @@ corner_radius_bottom_left = 80
 corner_detail = 2
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn6x5"]
+bg_color = Color(0.8745098, 0.24313726, 0.13725491, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 1
+anti_aliasing = false
+
 [node name="Main" type="Node2D" unique_id=780503707]
 script = ExtResource("1_sugp2")
 metadata/_edit_lock_ = true
@@ -192,12 +201,12 @@ offset_top = 590.0
 offset_right = 130.0
 offset_bottom = 630.0
 theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_b3y2n")
+theme_override_styles/normal_tip = SubResource("StyleBoxFlat_rn6x5")
 joystick_size = 167.0
 action_left = &"left"
 action_right = &"right"
 action_up = &"up"
 action_down = &"down"
-visibility_mode = 1
 
 [node name="BGParallax" type="Node2D" parent="." unique_id=713916239]
 metadata/_edit_lock_ = true

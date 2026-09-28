@@ -3,12 +3,14 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var cheats: Node2D = $cheats
 @onready var HUDLayer: HUD = $HUD
+@onready var joystick: VirtualJoystick = $HUD/VirtualJoystick
 var gameOverPopupScene: PackedScene = preload("res://scenes/menus/gameOverPopup.tscn")
 var pausePopupScene: PackedScene = preload("res://scenes/menus/pauseMenu.tscn")
 
 func _ready() -> void:
 	Audio.startMusicSystem()
 	cheats.visible = GameState.isDebugMode
+	joystick.visible = GameState.isApkMode
 	player.hp.healthChanged.connect(updateHits)
 	player.hp.shieldChanged.connect(updateShieldOnHUD)
 	player.upgrades.upgradeAcquired.connect(receiveUpgradeInfo)
