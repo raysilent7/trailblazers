@@ -189,7 +189,8 @@ texture = ExtResource("9_k5wrm")
 stretch_mode = 3
 
 [node name="shoot" type="TouchScreenButton" parent="HUD" unique_id=698440081]
-position = Vector2(850, 610)
+position = Vector2(804, 564)
+scale = Vector2(1.71875, 1.71875)
 texture_normal = ExtResource("13_jbj1t")
 texture_pressed = ExtResource("18_0ld40")
 action = "shoot"
@@ -202,7 +203,7 @@ offset_right = 130.0
 offset_bottom = 630.0
 theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_b3y2n")
 theme_override_styles/normal_tip = SubResource("StyleBoxFlat_rn6x5")
-joystick_size = 167.0
+joystick_size = 175.0
 action_left = &"left"
 action_right = &"right"
 action_up = &"up"
